@@ -6,10 +6,12 @@ import android.os.Bundle
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.view.View
+import android.widget.ImageButton
 import com.example.farahal_kiswani.for9a.R
 import com.example.farahal_kiswani.for9a.databinding.ActivityOpportunityBinding
 import com.example.farahal_kiswani.for9a.learn.LearnActivity
@@ -44,7 +46,18 @@ class OpportunityActivity : AppCompatActivity() {
 
     private fun initRecyclerView(view: View) {
         val recyclerView = view.findViewById<RecyclerView>(R.id.mNameRecycler)
+        val gridView = view.findViewById<ImageButton>(R.id.mGridIcon)
+        val listView = view.findViewById<ImageButton>(R.id.mListIcon)
         recyclerView.layoutManager = LinearLayoutManager(recyclerView.context, LinearLayoutManager.VERTICAL, true)
+
+        gridView.setOnClickListener {
+            recyclerView.layoutManager = GridLayoutManager(recyclerView.context,2, GridLayoutManager.VERTICAL, true)
+
+        }
+        listView.setOnClickListener {
+            recyclerView.layoutManager = LinearLayoutManager(recyclerView.context, LinearLayoutManager.VERTICAL, true)
+
+        }
 
         dataViewModel.setUpLoadMore()
 //
