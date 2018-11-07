@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?><layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+                name="viewRowLearn"
+                type="com.example.farahal_kiswani.for9a.learn.LearnItemViewModel"/>
+    </data>
+    <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            card_view:cardCornerRadius="5dp"
+            card_view:cardUseCompatPadding="true">
+
+
+        <TextView
+                android:id="@+id/mtitle_learn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+
+                app:text="@{viewRowLearn.title}"
+
+                android:textSize="18sp"/>
+
+
+    </android.support.v7.widget.CardView>
+
+</layout>

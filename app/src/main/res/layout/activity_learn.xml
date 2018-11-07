@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+
+    <data>
+
+        <import type="android.view.View"/>
+        <variable
+                name="viewListLearn"
+                type="com.example.farahal_kiswani.for9a.learn.LearnViewModel"/>
+
+    </data>
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+    >
+    <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_main"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorAccent"/>
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/mArticleRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar_main"
+            app:adapter="@{viewListLearn.adapter}"
+            app:data="@{viewListLearn.data}" />
+    </RelativeLayout>
+
+</layout>

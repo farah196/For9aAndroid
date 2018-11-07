@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+>
+
+    <data>
+
+        <import type="android.view.View"/>
+        <variable
+                name="viewListOpp"
+                type="com.example.farahal_kiswani.for9a.opportunity.OpportunityViewModel"/>
+
+    </data>
+
+    <android.support.v4.widget.DrawerLayout android:id="@+id/drawer_layout"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:fitsSystemWindows="true"
+                                            android:orientation="vertical"
+                                            tools:openDrawer="end">
+<RelativeLayout android:layout_width="match_parent"
+                android:layout_height="match_parent">
+        <android.support.design.widget.CoordinatorLayout
+                android:id="@+id/coordinatorLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <android.support.design.widget.AppBarLayout
+                    android:id="@+id/appBar_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fitsSystemWindows="true">
+
+                <android.support.design.widget.CollapsingToolbarLayout
+                        android:id="@+id/main_collapsing"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:contentScrim="?attr/colorPrimary"
+                        app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+
+                    <RelativeLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                        <android.support.v7.widget.Toolbar
+                                android:id="@+id/toolbar_main"
+                                android:layout_width="match_parent"
+                                android:layout_height="?attr/actionBarSize"
+                                android:background="@color/colorPrimary"
+
+                                app:contentInsetStartWithNavigation="0dp">
+
+                            <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                <ImageButton
+                                        android:id="@+id/mFilterIcon"
+                                        android:layout_width="25dp"
+                                        android:layout_height="30dp"
+                                        android:layout_alignParentLeft="true"
+                                        android:layout_marginTop="5dp"
+
+                                        android:src="@drawable/filter"
+                                        tools:ignore="ContentDescription"/>
+
+                                <android.support.v7.widget.CardView
+
+                                        android:layout_width="220dp"
+
+                                        android:layout_height="45dp"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="70dp"
+                                        app:cardBackgroundColor="#f6f5f1"
+                                        app:cardCornerRadius="15dp"
+                                        app:cardUseCompatPadding="true"
+                                        tools:ignore="RtlHardcoded">
+
+                                    <android.support.v7.widget.SearchView
+                                            android:id="@+id/mSearchBar"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"/>
+
+                                </android.support.v7.widget.CardView>
+
+
+                            </RelativeLayout>
+
+                        </android.support.v7.widget.Toolbar>
+
+
+                        <LinearLayout
+                                android:id="@+id/mFilter"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_below="@+id/toolbar_main"
+                                android:background="@color/white"
+                                android:orientation="horizontal"
+                                android:paddingTop="5dp">
+
+                            <ImageButton
+                                    android:id="@+id/mListIcon"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+
+                                    android:src="@drawable/list"/>
+
+                            <ImageButton
+                                    android:id="@+id/mGridIcon"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+
+                                    android:src="@drawable/grid"/>
+
+
+                        </LinearLayout>
+
+
+                    </RelativeLayout>
+
+
+                </android.support.design.widget.CollapsingToolbarLayout>
+                <android.support.v7.widget.RecyclerView
+
+                        android:id="@+id/mFilterRecycler"
+                        android:layout_width="match_parent"
+                        android:background="@color/white"
+                        android:layout_height="wrap_content"
+                        app:adapter="@{viewListOpp.category}"
+                        app:data="@{viewListOpp.filter}"/>
+
+
+            </android.support.design.widget.AppBarLayout>
+
+
+        </android.support.design.widget.CoordinatorLayout>
+        <android.support.v4.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+        android:layout_below="@+id/coordinatorLayout">
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/mNameRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    app:adapter="@{viewListOpp.adapter}"
+                    app:data="@{viewListOpp.data}"
+                    app:scrollTo="@{viewListOpp.scrollTo}"/>
+
+        </android.support.v4.widget.NestedScrollView>
+        <android.support.v4.widget.ContentLoadingProgressBar
+                android:id="@+id/mProgress"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="@{viewListOpp.loading ? View.VISIBLE : View.GONE}"
+                android:layout_centerInParent="true"
+        />
+
+</RelativeLayout>
+
+        <android.support.design.widget.NavigationView
+                android:id="@+id/navigation"
+                android:layout_width="220dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="left"
+                app:headerLayout="@layout/nav_header_home"
+                app:itemTextColor="@color/colorPrimary"
+                app:menu="@menu/drawer_menu"/>
+
+
+    </android.support.v4.widget.DrawerLayout>
+
+
+</layout>
