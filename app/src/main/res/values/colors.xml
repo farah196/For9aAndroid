@@ -16,7 +16,6 @@
     <color name="transparent">#80000000</color>
 
     <color name="bb_inActiveBottomBarItemColor">#747474</color>
-    <color name="white">#FFFFFF</color>
     <color name="bb_darkBackgroundColor">#212121</color>
     <color name="bb_tabletRightBorderDark">#505050</color>
     <color name="dark_gray_trans">#c7565656</color>
@@ -67,5 +66,19 @@
         <item name="customer" type="color">#fc6177</item>
         <item name="other" type="color">#bcbcbc</item>
     </array>
+
+
+    <color name="white">#ffffffff</color>
+    <color name="page1">#ff21B8AC</color>
+    <color name="page2">#ff218AB8</color>
+    <color name="page3">#ff21A5B8</color>
+    <color name="page4">#ff1F8B9B</color>
+
+    <color name="rocket">#e55555</color>
+    <color name="avatar1">#e1f4f8</color>
+    <color name="avatar2">#c6b9e7</color>
+    <color name="avatar3">#f8e71d</color>
+    <color name="avatar4">#65aa01</color>
+    <color name="avatar5">#4ee4c1</color>
 
 </resources>

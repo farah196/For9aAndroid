@@ -1,5 +1,6 @@
 package com.example.farahal_kiswani.for9a.opportunity
 
+import android.content.Context
 import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
@@ -18,9 +19,11 @@ import com.example.farahal_kiswani.for9a.learn.LearnActivity
 import kotlinx.android.synthetic.main.activity_opportunity.*
 
 class OpportunityActivity : AppCompatActivity() {
-    private var dataViewModel: OpportunityViewModel = OpportunityViewModel()
 
+    private var dataViewModel: OpportunityViewModel = OpportunityViewModel(this)
+    var context: Context? = null
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         val view = bind()
         initRecyclerView(view)
@@ -51,12 +54,12 @@ class OpportunityActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(recyclerView.context, LinearLayoutManager.VERTICAL, true)
 
         gridView.setOnClickListener {
-            recyclerView.layoutManager = GridLayoutManager(recyclerView.context,2, GridLayoutManager.VERTICAL, true)
 
+            recyclerView.layoutManager = GridLayoutManager(recyclerView.context, 2, GridLayoutManager.VERTICAL, true)
         }
+
         listView.setOnClickListener {
             recyclerView.layoutManager = LinearLayoutManager(recyclerView.context, LinearLayoutManager.VERTICAL, true)
-
         }
 
         dataViewModel.setUpLoadMore()
@@ -82,43 +85,9 @@ class OpportunityActivity : AppCompatActivity() {
     private fun initDrawer(view: View) {
         val toolbar: Toolbar = view.findViewById(R.id.toolbar_main)
         setSupportActionBar(toolbar)
-
-        val mDrawerToggle: ActionBarDrawerToggle?
-        mDrawerToggle = object :
-            ActionBarDrawerToggle(this, drawer_layout, toolbar, R.string.drawer_open, R.string.drawer_close) {
-
-            override fun onDrawerClosed(view: View) {
-                super.onDrawerClosed(view)
-
-            }
-
-            override fun onDrawerOpened(drawerView: View) {
-                super.onDrawerOpened(drawerView)
-                //toast("Drawer opened")
-            }
-        }
-
-
-        drawer_layout!!.addDrawerListener(mDrawerToggle)
-        mDrawerToggle.setDrawerIndicatorEnabled(true)
-
-        mDrawerToggle.syncState()
-
-        navigation.setNavigationItemSelectedListener {
-            when (it.itemId) {
-                R.id.mLearn -> {
-                    val intent = Intent(this, LearnActivity::class.java)
-                    startActivity(intent)
-                }
-
-            }
-            // Close the drawer
-            drawer_layout.closeDrawer(GravityCompat.START)
-            true
-        }
+        dataViewModel.drawer(this, drawer_layout, toolbar, navigation)
     }
-
-
-
-
 }
+
+
+

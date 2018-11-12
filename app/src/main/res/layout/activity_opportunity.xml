@@ -48,7 +48,7 @@
 
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="horizontal">
+                                android:orientation="vertical">
 
                             <android.support.v7.widget.Toolbar
                                     android:id="@+id/toolbar_main"
@@ -123,40 +123,42 @@
 
 
                             </LinearLayout>
+                            <LinearLayout android:layout_width="match_parent"
+                                          android:layout_height="wrap_content"
+                                          android:layout_below="@+id/mFilter">
+                                <android.support.v7.widget.RecyclerView
 
-
+                                        android:id="@+id/mFilterRecycler"
+                                        android:layout_width="match_parent"
+                                        android:background="@color/white"
+                                        android:layout_height="wrap_content"
+                                        app:adapter="@{viewListOpp.category}"
+                                        app:data="@{viewListOpp.filter}"/>
+                            </LinearLayout>
                         </RelativeLayout>
 
 
                     </android.support.design.widget.CollapsingToolbarLayout>
-                    <android.support.v7.widget.RecyclerView
-
-                            android:id="@+id/mFilterRecycler"
+                    <android.support.v4.widget.NestedScrollView
                             android:layout_width="match_parent"
-                            android:background="@color/white"
                             android:layout_height="wrap_content"
-                            app:adapter="@{viewListOpp.category}"
-                            app:data="@{viewListOpp.filter}"/>
+                            android:layout_below="@+id/coordinatorLayout">
+                        <android.support.v7.widget.RecyclerView
+                                android:id="@+id/mNameRecycler"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/white"
+                                app:adapter="@{viewListOpp.adapter}"
+                                app:data="@{viewListOpp.data}"
+                                app:scrollTo="@{viewListOpp.scrollTo}"/>
 
+                    </android.support.v4.widget.NestedScrollView>
 
                 </android.support.design.widget.AppBarLayout>
 
 
             </android.support.design.widget.CoordinatorLayout>
-            <android.support.v4.widget.NestedScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/coordinatorLayout">
-                <android.support.v7.widget.RecyclerView
-                        android:id="@+id/mNameRecycler"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/white"
-                        app:adapter="@{viewListOpp.adapter}"
-                        app:data="@{viewListOpp.data}"
-                        app:scrollTo="@{viewListOpp.scrollTo}"/>
 
-            </android.support.v4.widget.NestedScrollView>
 
             <android.support.v4.widget.ContentLoadingProgressBar
                     android:id="@+id/mProgress"

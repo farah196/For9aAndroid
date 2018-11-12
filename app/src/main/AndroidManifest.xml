@@ -12,7 +12,9 @@
             android:theme="@style/AppTheme.NoActionBar"
             tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity android:name=".learn.LearnActivity"/>
-        <activity android:name=".opportunity.OpportunityActivity">
+
+        <activity android:name=".opportunity.OpportunityActivity"/>
+                <activity android:name=".signUp.SignUpActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

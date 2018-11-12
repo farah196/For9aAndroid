@@ -2,4 +2,12 @@
     <string name="app_name">For9a</string>
     <string name="drawer_open">open</string>
     <string name="drawer_close">close</string>
+
+
+    <string-array name="options">
+        <item>One</item>
+        <item>Two</item>
+        <item>Three</item>
+
+    </string-array>
 </resources>
