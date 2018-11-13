@@ -6,9 +6,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import com.example.farahal_kiswani.for9a.R
-import kotlinx.android.synthetic.main.countries_fragment.*
 
 class Fragment1 : Fragment() {
 
@@ -19,7 +17,7 @@ class Fragment1 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val v = inflater.inflate(R.layout.countries_fragment,null)
+        val v = inflater.inflate(R.layout.step1_fragment,null)
 
         return v
 

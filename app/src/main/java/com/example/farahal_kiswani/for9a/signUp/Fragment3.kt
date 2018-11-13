@@ -15,7 +15,7 @@ class Fragment3 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val v = inflater.inflate(R.layout.countries_fragment, null)
+        val v = inflater.inflate(R.layout.step1_fragment, null)
 
 
         return v
