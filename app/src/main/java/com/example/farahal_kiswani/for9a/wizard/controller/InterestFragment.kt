@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.farahal_kiswani.for9a.R
 import com.example.farahal_kiswani.for9a.databinding.FragmentInterestBinding
 import com.example.farahal_kiswani.for9a.wizard.interfaces.InterestFragmentCallback
@@ -15,8 +16,7 @@ import com.example.farahal_kiswani.for9a.wizard.viewModel.InterestViewModel
 
 
 class InterestFragment : BaseWizaredFragment(),
-    InterestFragmentCallback
-{
+    InterestFragmentCallback {
 
     lateinit var interstViewModel: InterestViewModel
     var wizaredCallback: WizaredPagerCallback? = null
@@ -41,10 +41,12 @@ class InterestFragment : BaseWizaredFragment(),
 
 
         // send name in call back to final fragment
-
-        wizaredCallback!!.onNext()
-        //login()
-
+        if (name.equals("")) {
+            Toast.makeText(this.context, "please enter your name", Toast.LENGTH_LONG).show()
+        } else {
+            wizaredCallback!!.onNext()
+            //login()
+        }
     }
 
 

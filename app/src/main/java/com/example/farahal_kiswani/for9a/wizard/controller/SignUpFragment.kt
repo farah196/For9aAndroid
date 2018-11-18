@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.farahal_kiswani.for9a.R
 import com.example.farahal_kiswani.for9a.databinding.FragmentSignupBinding
 import com.example.farahal_kiswani.for9a.wizard.interfaces.SignUpFragmentCallback
@@ -29,12 +30,20 @@ class SignUpFragment : BaseWizaredFragment(),
             DataBindingUtil.inflate(inflater, R.layout.fragment_signup, container, false)
         signupViewModel= SignUpViewModel(this)
         binding.viewSignUp = signupViewModel
+
         return binding.getRoot()
 
     }
 
     override fun onSignClicked(email: String) {
-        wizaredCallback!!.onNext()
+
+        if (email.equals("")) {
+            Toast.makeText(this.context, "please enter your email", Toast.LENGTH_LONG).show()
+        } else {
+            wizaredCallback!!.onNext()
+
+        }
+
     }
 
     override fun onAttach(context: Context) {
@@ -52,5 +61,7 @@ class SignUpFragment : BaseWizaredFragment(),
         super.onDetach()
 
     }
+
+
 }
 
