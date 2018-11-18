@@ -1,13 +1,15 @@
 package com.example.farahal_kiswani.for9a.databinding
 
-import android.support.v4.view.ViewPager
+
 import android.databinding.BindingAdapter
-import com.example.farahal_kiswani.for9a.signUp.TabPagerAdapter
+import android.support.v4.view.ViewPager
+import com.example.farahal_kiswani.for9a.wizard.CustomViewPager
+import com.example.farahal_kiswani.for9a.wizard.ViewPagerAdapter
 
 
-class ViewPagerDataBinding {
+class ViewPagerDataBinding{
     @BindingAdapter("app:adapter")
-    fun bind(viewPager: ViewPager, adapter: TabPagerAdapter) {
+    fun bind(viewPager: ViewPager, adapter: ViewPagerAdapter) {
         viewPager.adapter = adapter
 
     }

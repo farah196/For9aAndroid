@@ -14,7 +14,9 @@
         <activity android:name=".learn.LearnActivity"/>
 
         <activity android:name=".opportunity.OpportunityActivity"/>
-                <activity android:name=".signUp.SignUpActivity">
+        <activity android:name=".signUp.SignUpActivity"/>
+        <activity android:name=".wizard.WizaredActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

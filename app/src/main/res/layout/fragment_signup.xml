@@ -8,17 +8,14 @@
 
         <import type="android.view.View"/>
         <variable
-                name="viewStepOne"
-                type="com.example.farahal_kiswani.for9a.signUp.fragment.StepOneViewModel"/>
+                name="viewSignUp"
+                type="com.example.farahal_kiswani.for9a.wizard.SignUpViewModel"/>
     </data>
 
 <RelativeLayout
         android:layout_height="match_parent"
         android:layout_width="match_parent">
-    <FrameLayout
-            android:id="@+id/mLayoutContainer"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+
     <android.support.design.widget.TextInputLayout
             android:id="@+id/text_email_layout"
             android:layout_width="300dp"
@@ -29,20 +26,20 @@
                 android:id="@+id/email"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:text="@={viewStepOne.email}"
+                android:text="@={viewSignUp.email}"
                 android:hint="أدخل البريد الإلكتروني"/>
 
     </android.support.design.widget.TextInputLayout>
     <Button
 
-            android:id="@+id/login"
+            android:id="@+id/mEmailButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_email_layout"
             android:layout_centerInParent="true"
             android:textColor="#ffff"
             android:text="تسجيل الدخول"
-            android:onClick="@{(v)->viewStepOne.onNext(v)}"
+            android:onClick="@{(v)->viewSignUp.getEmail(v)}"
             style="@style/Widget.AppCompat.Button.Colored"/>
 
 </RelativeLayout>

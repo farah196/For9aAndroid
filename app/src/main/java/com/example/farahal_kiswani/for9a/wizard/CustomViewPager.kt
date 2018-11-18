@@ -1,5 +1,4 @@
-package com.example.farahal_kiswani.for9a.signUp
-
+package com.example.farahal_kiswani.for9a.wizard
 import android.annotation.SuppressLint
 import android.content.Context
 import android.support.v4.view.ViewPager
