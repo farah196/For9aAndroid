@@ -9,7 +9,7 @@
         <import type="android.view.View"/>
         <variable
                 name="viewInterest"
-                type="com.example.farahal_kiswani.for9a.wizard.InterestViewModel"/>
+                type="com.example.farahal_kiswani.for9a.wizard.viewModel.InterestViewModel"/>
     </data>
 
     <RelativeLayout
@@ -38,7 +38,7 @@
                 android:layout_centerInParent="true"
                 android:textColor="#ffff"
                 android:text="تسجيل الدخول"
-                android:onClick="@{(v)->viewInterest.getName(v)}"
+                android:onClick="@{(v)->viewInterest.onLoginButtonClicked(v)}"
                 style="@style/Widget.AppCompat.Button.Colored"/>
 
     </RelativeLayout>

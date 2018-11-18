@@ -1,4 +1,4 @@
-package com.example.farahal_kiswani.for9a.wizard
+package com.example.farahal_kiswani.for9a.wizard.util
 import android.annotation.SuppressLint
 import android.content.Context
 import android.support.v4.view.ViewPager

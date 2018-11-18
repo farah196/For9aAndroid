@@ -9,7 +9,7 @@
         <import type="android.view.View"/>
         <variable
                 name="viewWizared"
-                type="com.example.farahal_kiswani.for9a.wizard.WizaredViewModel"/>
+                type="com.example.farahal_kiswani.for9a.wizard.viewModel.WizaredViewModel"/>
     </data>
     <RelativeLayout
             android:layout_width="match_parent"
@@ -30,14 +30,14 @@
                 android:layoutDirection="rtl"/>
 
 
-        <!--<com.example.farahal_kiswani.for9a.wizard.CustomViewPager-->
+        <!--<com.example.farahal_kiswani.for9a.wizard.util.CustomViewPager-->
         <!--android:id="@+id/viewpager"-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="match_parent"-->
         <!--android:layout_below="@+id/tabs" />-->
 
 
-        <com.example.farahal_kiswani.for9a.wizard.CustomViewPager
+        <com.example.farahal_kiswani.for9a.wizard.util.CustomViewPager
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/viewpager"

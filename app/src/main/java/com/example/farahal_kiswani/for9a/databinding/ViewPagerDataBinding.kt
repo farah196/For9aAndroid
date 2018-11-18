@@ -3,8 +3,7 @@ package com.example.farahal_kiswani.for9a.databinding
 
 import android.databinding.BindingAdapter
 import android.support.v4.view.ViewPager
-import com.example.farahal_kiswani.for9a.wizard.CustomViewPager
-import com.example.farahal_kiswani.for9a.wizard.ViewPagerAdapter
+import com.example.farahal_kiswani.for9a.wizard.adapter.ViewPagerAdapter
 
 
 class ViewPagerDataBinding{

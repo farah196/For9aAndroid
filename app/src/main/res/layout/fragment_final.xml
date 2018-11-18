@@ -9,7 +9,7 @@
         <import type="android.view.View"/>
         <variable
                 name="viewFinal"
-                type="com.example.farahal_kiswani.for9a.wizard.FinalViewModel"/>
+                type="com.example.farahal_kiswani.for9a.wizard.viewModel.FinalViewModel"/>
     </data>
 
     <RelativeLayout
@@ -27,7 +27,7 @@
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:text="@={viewFinal.final}"
-                    android:hint="أدخل اسمك الكامل"/>
+                    android:hint=" اسمك الكامل"/>
 
         </android.support.design.widget.TextInputLayout>
         <Button

@@ -13,9 +13,9 @@
             tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity android:name=".learn.LearnActivity"/>
 
-        <activity android:name=".opportunity.OpportunityActivity"/>
-        <activity android:name=".signUp.SignUpActivity"/>
-        <activity android:name=".wizard.WizaredActivity">
+
+            <activity android:name=".opportunity.OpportunityActivity"/>
+                <activity android:name=".wizard.controller.WizaredActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

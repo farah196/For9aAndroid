@@ -9,7 +9,7 @@
         <import type="android.view.View"/>
         <variable
                 name="viewSignUp"
-                type="com.example.farahal_kiswani.for9a.wizard.SignUpViewModel"/>
+                type="com.example.farahal_kiswani.for9a.wizard.viewModel.SignUpViewModel"/>
     </data>
 
 <RelativeLayout
