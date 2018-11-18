@@ -3,6 +3,7 @@ package com.example.farahal_kiswani.for9a.wizard.viewModel
 import android.databinding.BaseObservable
 import android.databinding.ObservableField
 import android.view.View
+import com.example.farahal_kiswani.for9a.wizard.interfaces.DataCallback
 import com.example.farahal_kiswani.for9a.wizard.interfaces.InterestFragmentCallback
 
 
@@ -11,6 +12,7 @@ class InterestViewModel(val interestCallback: InterestFragmentCallback) : BaseOb
 
     fun onLoginButtonClicked(view:View){
         interestCallback.onLoginClicked(name.get()!!)
+
     }
 
     fun onLoginFailed(message:String){

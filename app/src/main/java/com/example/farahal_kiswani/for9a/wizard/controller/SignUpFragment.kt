@@ -37,11 +37,13 @@ class SignUpFragment : BaseWizaredFragment(),
 
     override fun onSignClicked(email: String) {
 
-        if (email.equals("")) {
+        if (email.equals(""))
+        {
             Toast.makeText(this.context, "please enter your email", Toast.LENGTH_LONG).show()
-        } else {
+        }
+        else
+        {
             wizaredCallback!!.onNext()
-
         }
 
     }
@@ -61,7 +63,6 @@ class SignUpFragment : BaseWizaredFragment(),
         super.onDetach()
 
     }
-
 
 }
 
