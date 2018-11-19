@@ -20,6 +20,12 @@ import java.util.ArrayList
 
 class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
 
+    enum class DataTypes  {
+        Categories,
+        Countries,
+        Interests,
+        User;
+    }
     lateinit var viewPager: CustomViewPager
     var wizaredViewModel: WizaredViewModel =
         WizaredViewModel(supportFragmentManager)
@@ -75,13 +81,23 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
         wizaredViewModel.OpenMainActivity(this)
     }
 
-    override fun onNext() {
+    override fun onNext(ob:Any, dt:DataTypes) {
+        saveData(ob,dt)
         if (currentFragmentPosition < mFragments.size - 1) {
             currentFragmentPosition++
 
             viewPager.currentItem = currentFragmentPosition
         } else {
             onFinish()
+        }
+    }
+
+    fun saveData(ob:Any, dt:DataTypes){
+        when (dt) {
+         //   DataTypes.Categories -> mFilterModel.setCat(ob)
+            DataTypes.Countries -> TODO()
+            DataTypes.Interests -> TODO()
+            DataTypes.User -> TODO()
         }
     }
 }

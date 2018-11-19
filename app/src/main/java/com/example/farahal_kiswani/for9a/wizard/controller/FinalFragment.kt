@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.farahal_kiswani.for9a.R
 import com.example.farahal_kiswani.for9a.databinding.FragmentFinalBinding
-import com.example.farahal_kiswani.for9a.wizard.interfaces.DataCallback
 import com.example.farahal_kiswani.for9a.wizard.interfaces.FinalCallback
 import com.example.farahal_kiswani.for9a.wizard.util.BaseWizaredFragment
 import com.example.farahal_kiswani.for9a.wizard.interfaces.WizaredPagerCallback
@@ -21,24 +20,29 @@ class FinalFragment : BaseWizaredFragment(),
 
     lateinit var finalViewModel: FinalViewModel
     var wizaredCallback: WizaredPagerCallback? = null
-    val getValue = arguments!!.getString("name")
-    //    var interestFragment: InterestFragment = InterestFragment()
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val binding: FragmentFinalBinding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_final, container, false
         )
-//        interestFragment.setFragmentCallback(this)
+
         finalViewModel = FinalViewModel(this)
         binding.viewFinal = finalViewModel
 
-        finalViewModel.final.set(getValue)
         return binding.getRoot()
 
     }
 
     override fun final() {
+
+        val bundle = arguments
+        var myString:String ? =null
+        if (bundle != null) {
+            myString   = bundle.getString("my_key2")
+        }
+        finalViewModel.final.set(myString)
         wizaredCallback!!.onFinish()
     }
 
@@ -57,4 +61,6 @@ class FinalFragment : BaseWizaredFragment(),
         wizaredCallback = null
         super.onDetach()
     }
+
+
 }

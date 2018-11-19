@@ -43,6 +43,14 @@ class SignUpFragment : BaseWizaredFragment(),
         }
         else
         {
+            val bundle = Bundle()
+            bundle.putString("my_key2", email)
+            val myFrag = FinalFragment()
+            myFrag.setArguments(bundle)
+            fragmentManager!!.beginTransaction()
+                .add(R.id.fragment_container, myFrag, "myFrag")
+                .commit()
+
             wizaredCallback!!.onNext()
         }
 
