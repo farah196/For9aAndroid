@@ -87,10 +87,13 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_password_layout"
             android:layout_centerInParent="true"
+
             android:textColor="#ffff"
             android:text="تسجيل الدخول"
             android:onClick="@{(v)->viewSignUp.signup(v)}"
             style="@style/Widget.AppCompat.Button.Colored"/>
+
+
 
 </RelativeLayout>
 </layout>

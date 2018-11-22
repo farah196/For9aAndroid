@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.databinding.DataBindingUtil
 import android.os.Bundle
+import android.support.v4.app.FragmentManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,8 +19,7 @@ import com.example.farahal_kiswani.for9a.wizard.model.UserModel
 import com.example.farahal_kiswani.for9a.wizard.viewModel.PersonalInfoViewModel
 
 
-class PersonalinfoFragment : BaseWizaredFragment(),
-    PersonalInfoFragmentCallback {
+class PersonalinfoFragment : BaseWizaredFragment(), PersonalInfoFragmentCallback {
 
     lateinit var personalInfoViewModel: PersonalInfoViewModel
     var wizaredCallback: WizaredPagerCallback? = null
@@ -34,6 +34,12 @@ class PersonalinfoFragment : BaseWizaredFragment(),
         return binding.getRoot()
 
     }
+
+    override fun onBack() {
+        wizaredCallback!!.onBack()
+    }
+
+
 
 
     override fun onLoginClicked(
@@ -51,7 +57,6 @@ class PersonalinfoFragment : BaseWizaredFragment(),
         info.mPhone = mPhone
         info.mEducationalLevel = mEducationalLevel
         info.mSpecialization = mSpecialization
-
         wizaredCallback!!.onNext(info, WizaredActivity.DataTypes.UserPersonalInfo)
 
     }

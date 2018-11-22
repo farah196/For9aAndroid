@@ -3,6 +3,7 @@ package com.example.farahal_kiswani.for9a.wizard.controller
 import android.content.Context
 import android.databinding.DataBindingUtil
 import android.os.Bundle
+import android.support.v4.app.FragmentManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,6 +34,9 @@ class LoginInfoFragment : BaseWizaredFragment(),
         return binding.getRoot()
 
     }
+
+
+
 
     fun validation(): Boolean {
         if (UserModel().loginInfo.mFirstName.equals("")) {

@@ -115,9 +115,22 @@
                 android:layout_below="@+id/text_specialization_layout"
                 android:layout_centerInParent="true"
                 android:textColor="#ffff"
-
+                android:layout_alignParentRight="true"
                 android:text="المتابعة"
                 android:onClick="@{(v)->viewPersonalInfo.onLoginButtonClicked(v)}"
+                style="@style/Widget.AppCompat.Button.Colored"/>
+
+
+        <Button
+                android:id="@+id/mPreviousButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_specialization_layout"
+                android:layout_centerInParent="true"
+                android:textColor="#ffff"
+                android:layout_alignParentLeft="true"
+                android:text="سابقا"
+                android:onClick="@{(v)->viewPersonalInfo.back(v)}"
                 style="@style/Widget.AppCompat.Button.Colored"/>
 
     </RelativeLayout>

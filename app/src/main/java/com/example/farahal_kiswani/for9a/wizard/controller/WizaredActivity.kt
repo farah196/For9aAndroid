@@ -22,6 +22,7 @@ import java.util.ArrayList
 
 class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
 
+
     enum class DataTypes {
         Categories,
         Countries,
@@ -96,7 +97,13 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
             onFinish()
         }
     }
+    override fun onBack() {
+        if (currentFragmentPosition < mFragments.size - 1) {
+            currentFragmentPosition--
 
+            viewPager.currentItem = currentFragmentPosition
+        }
+    }
     fun saveData(ob: Any, dt: DataTypes) {
         when (dt) {
             Countries -> TODO()
@@ -113,5 +120,14 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
 
     fun savePersonalInfo(info: UserModel.PersonalInfo) {
         user.personalInfo = info
+    }
+
+    override  fun onBackPressed() {
+        super.onBackPressed()
+        if (currentFragmentPosition < mFragments.size - 1) {
+            currentFragmentPosition--
+
+            viewPager.currentItem = currentFragmentPosition
+        }
     }
 }

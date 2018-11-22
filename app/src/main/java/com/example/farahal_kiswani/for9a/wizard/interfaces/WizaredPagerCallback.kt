@@ -6,5 +6,6 @@ interface WizaredPagerCallback {
 
     fun onNext( ob: Any, dataType: WizaredActivity.DataTypes)
     fun onFinish()
+    fun onBack()
 
 }
