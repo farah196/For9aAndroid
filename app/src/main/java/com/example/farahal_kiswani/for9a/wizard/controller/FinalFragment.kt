@@ -1,5 +1,4 @@
 package com.example.farahal_kiswani.for9a.wizard.controller
-
 import android.content.Context
 import android.databinding.DataBindingUtil
 import android.os.Bundle
@@ -21,7 +20,7 @@ class FinalFragment : BaseWizaredFragment(),
     lateinit var finalViewModel: FinalViewModel
     var wizaredCallback: WizaredPagerCallback? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val binding: FragmentFinalBinding = DataBindingUtil.inflate(
             inflater,
@@ -30,22 +29,14 @@ class FinalFragment : BaseWizaredFragment(),
 
         finalViewModel = FinalViewModel(this)
         binding.viewFinal = finalViewModel
-
+        this.mCallback =wizaredCallback
         return binding.getRoot()
 
     }
 
     override fun final() {
-
-        val bundle = arguments
-        var myString:String ? =null
-        if (bundle != null) {
-            myString   = bundle.getString("my_key2")
-        }
-        finalViewModel.final.set(myString)
         wizaredCallback!!.onFinish()
     }
-
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -60,7 +51,6 @@ class FinalFragment : BaseWizaredFragment(),
     override fun onDetach() {
         wizaredCallback = null
         super.onDetach()
+
     }
-
-
 }

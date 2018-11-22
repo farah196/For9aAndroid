@@ -11,7 +11,9 @@ import com.example.farahal_kiswani.for9a.R
 
 import com.example.farahal_kiswani.for9a.databinding.ActivityWizaredBinding
 import com.example.farahal_kiswani.for9a.wizard.adapter.ViewPagerAdapter
+import com.example.farahal_kiswani.for9a.wizard.controller.WizaredActivity.DataTypes.*
 import com.example.farahal_kiswani.for9a.wizard.interfaces.WizaredPagerCallback
+import com.example.farahal_kiswani.for9a.wizard.model.UserModel
 import com.example.farahal_kiswani.for9a.wizard.util.BaseWizaredFragment
 import com.example.farahal_kiswani.for9a.wizard.util.CustomViewPager
 import com.example.farahal_kiswani.for9a.wizard.viewModel.WizaredViewModel
@@ -20,12 +22,15 @@ import java.util.ArrayList
 
 class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
 
-    enum class DataTypes  {
+    enum class DataTypes {
         Categories,
         Countries,
         Interests,
-        User;
+        UserLoginInfo,
+        UserPersonalInfo;
     }
+
+    var user: UserModel = UserModel()
     lateinit var viewPager: CustomViewPager
     var wizaredViewModel: WizaredViewModel =
         WizaredViewModel(supportFragmentManager)
@@ -56,12 +61,12 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
         viewPager.setPagingEnabled(false)
 
         var mFragment: BaseWizaredFragment =
-            InterestFragment()
+            LoginInfoFragment()
         mFragment.setCallback(this)
         mFragments.add(mFragment)
 
 
-        mFragment = SignUpFragment()
+        mFragment = PersonalinfoFragment()
         mFragment.setCallback(this)
         mFragments.add(mFragment)
 
@@ -81,8 +86,8 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
         wizaredViewModel.OpenMainActivity(this)
     }
 
-    override fun onNext(ob:Any, dt:DataTypes) {
-        saveData(ob,dt)
+    override fun onNext(ob: Any, dataType: DataTypes) {
+        saveData(ob, dataType)
         if (currentFragmentPosition < mFragments.size - 1) {
             currentFragmentPosition++
 
@@ -92,12 +97,21 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
         }
     }
 
-    fun saveData(ob:Any, dt:DataTypes){
+    fun saveData(ob: Any, dt: DataTypes) {
         when (dt) {
-         //   DataTypes.Categories -> mFilterModel.setCat(ob)
-            DataTypes.Countries -> TODO()
-            DataTypes.Interests -> TODO()
-            DataTypes.User -> TODO()
+            Countries -> TODO()
+            Interests -> TODO()
+            UserLoginInfo -> saveLoginInfo(ob as UserModel.LoginInfo)
+            UserPersonalInfo -> savePersonalInfo(ob as UserModel.PersonalInfo)
+            Categories -> TODO()
         }
+    }
+
+    fun saveLoginInfo(info: UserModel.LoginInfo) {
+        user.loginInfo = info
+    }
+
+    fun savePersonalInfo(info: UserModel.PersonalInfo) {
+        user.personalInfo = info
     }
 }
