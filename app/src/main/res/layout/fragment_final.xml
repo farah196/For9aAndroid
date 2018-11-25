@@ -27,7 +27,7 @@
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:text="@={viewFinal.final}"
-                    android:hint=" اسمك الكامل"/>
+                   />
 
         </android.support.design.widget.TextInputLayout>
         <Button
@@ -37,7 +37,7 @@
                 android:layout_below="@+id/text_name_layout"
                 android:layout_centerInParent="true"
                 android:textColor="#ffff"
-                android:text="Done"
+                android:text="@string/mDoneButton"
                 android:onClick="@{(v)->viewFinal.getFinal(v)}"
                 style="@style/Widget.AppCompat.Button.Colored"/>
 

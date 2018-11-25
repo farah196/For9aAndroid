@@ -14,7 +14,7 @@ class LoginInfoViewModel (val loginInfoCallback: LoginInfoFragmentCallback): Bas
     val email = ObservableField<String>("")
     val password = ObservableField<String>("")
 
-    fun signup(view: View) {
+    fun login(view: View) {
         loginInfoCallback.onSignClicked(firstname.get()!!, lastname.get()!!, email.get()!!, password.get()!!)
     }
 

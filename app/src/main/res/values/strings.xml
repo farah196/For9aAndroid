@@ -2,6 +2,15 @@
     <string name="app_name">For9a</string>
     <string name="drawer_open">open</string>
     <string name="drawer_close">close</string>
+    <string name="select_gender_TextView">select gender</string>
+    <string name="mBirthdayTextview">تاريخ الميلاد</string>
+    <string name="mResidenceTextview">بلد الاقامة</string>
+    <string name="mPhoneTextview">رقم التلفون</string>
+    <string name="mEducationalLevelTextview">المستوى التعليمي</string>
+    <string name="mSpecializationTextView">التخصص</string>
+    <string name="mPreviousButton">سابقا</string>
+    <string name="mNextButton">المتابعة</string>
+    <string name="mDoneButton">Done</string>
 
 
     <string-array name="options">

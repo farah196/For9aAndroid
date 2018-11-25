@@ -15,7 +15,14 @@
     </style>
 
 
-    <style name="AppTheme.Button" parent="Base.Widget.AppCompat.Button.Colored">
+    <style name="AppTheme.Button.Borderless" parent="Base.Widget.AppCompat.Button.Borderless">
+        <item name="colorButtonNormal">@color/colorPrimary</item>
+    </style>
+    <style name="AppTheme.ButtonColored" parent="Base.Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppTheme.Button" parent="Base.Widget.AppCompat.Button">
         <item name="colorButtonNormal">@color/colorPrimary</item>
     </style>
 

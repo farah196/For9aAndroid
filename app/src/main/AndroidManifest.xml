@@ -14,8 +14,9 @@
         <activity android:name=".learn.LearnActivity"/>
 
 
-            <activity android:name=".opportunity.OpportunityActivity"/>
-                <activity android:name=".wizard.controller.WizaredActivity">
+        <activity android:name=".opportunity.OpportunityActivity"/>
+        <activity android:windowSoftInputMode="adjustResize"
+                  android:name=".wizard.controller.WizaredActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

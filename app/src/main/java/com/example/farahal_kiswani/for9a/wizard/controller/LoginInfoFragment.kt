@@ -28,35 +28,10 @@ class LoginInfoFragment : BaseWizaredFragment(),
         val binding: FragmentLogininfoBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_logininfo, container, false)
         loginInfoViewModel = LoginInfoViewModel(this)
-        binding.viewSignUp = loginInfoViewModel
-
+        binding.viewLoginInfo = loginInfoViewModel
         this.mCallback = wizaredCallback
         return binding.getRoot()
 
-    }
-
-
-
-
-    fun validation(): Boolean {
-        if (UserModel().loginInfo.mFirstName.equals("")) {
-            Toast.makeText(this.context, "أدخل الاسم", Toast.LENGTH_LONG).show()
-
-        }
-        if (UserModel().loginInfo.mLastName.equals("")) {
-            Toast.makeText(this.context, "أدخل العائلة", Toast.LENGTH_LONG).show()
-
-        }
-
-        if (UserModel().loginInfo.mPassword.equals("")) {
-            Toast.makeText(this.context, "أدخل كلمة السر", Toast.LENGTH_LONG).show()
-
-        }
-        return true
-    }
-
-    private fun isValidMail(email: String): Boolean {
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
 
@@ -69,9 +44,7 @@ class LoginInfoFragment : BaseWizaredFragment(),
         info.mPassword = password
         if (firstname.equals("") || lastname.equals("") || email.equals("") || password.equals("")) {
             Toast.makeText(this.context, "أكمل بياناتك", Toast.LENGTH_LONG).show()
-        }
-        else
-        {
+        } else {
             wizaredCallback!!.onNext(info, WizaredActivity.DataTypes.UserLoginInfo)
         }
     }
