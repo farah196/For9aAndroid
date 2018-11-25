@@ -21,7 +21,6 @@ class PersonalInfoViewModel(val personalInfoCallback: PersonalInfoFragmentCallba
 
     fun onLoginButtonClicked(view:View){
         personalInfoCallback.onLoginClicked(mBirthday.get()!!,mResidence.get()!!,mPhone.get()!!,mEducationalLevel.get()!!,mSpecialization.get()!!)
-
     }
 
     fun onLoginFailed(message:String){

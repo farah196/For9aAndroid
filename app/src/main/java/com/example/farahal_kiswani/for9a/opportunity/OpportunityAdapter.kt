@@ -13,9 +13,6 @@ import java.util.ArrayList
 class OpportunityAdapter : RecyclerView.Adapter<OpportunityAdapter.OpportunityViewHolder>() {
 
     private val data: MutableList<OpportunityModel>
-//    var isGrid = false
-//    private val VIEW_TYPE_GRID = 0
-//    private val VIEW_TYPE_LIST = 1
 
 
     init {
@@ -24,37 +21,12 @@ class OpportunityAdapter : RecyclerView.Adapter<OpportunityAdapter.OpportunityVi
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OpportunityViewHolder {
 
-//        when (viewType) {
-//            VIEW_TYPE_GRID -> {
-//                val gridView = LayoutInflater.from(parent.context).inflate(
-//                    R.layout.opportunity_row_grid,
-//                    FrameLayout(parent.context), false
-//                )
-//                return OpportunityViewHolder(gridView)
-//            }
-//            VIEW_TYPE_LIST -> {
-//                val listView =
-//                    LayoutInflater.from(parent.context).inflate(R.layout.opportunity_row, parent, false)
-//                return OpportunityViewHolder(listView)
-//            }
-//        }
-
         val itemView = LayoutInflater.from(parent.context).inflate(
             R.layout.opportunity_row,
             FrameLayout(parent.context), false
         )
         return OpportunityViewHolder(itemView)
     }
-
-//    override fun getItemViewType(position: Int): Int {
-//
-//        return if (isGrid) {
-//            VIEW_TYPE_GRID
-//        } else {
-//            VIEW_TYPE_LIST
-//        }
-//    }
-
 
     override fun onBindViewHolder(holder: OpportunityViewHolder, position: Int) {
         val dataModel = data[position]
@@ -99,7 +71,7 @@ class OpportunityAdapter : RecyclerView.Adapter<OpportunityAdapter.OpportunityVi
 
         fun unbind() {
             if (binding != null) {
-                binding!!.unbind() // Don't forget to unbind
+                binding!!.unbind()
             }
         }
 
