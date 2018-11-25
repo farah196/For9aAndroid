@@ -11,6 +11,10 @@
     <string name="mPreviousButton">سابقا</string>
     <string name="mNextButton">المتابعة</string>
     <string name="mDoneButton">Done</string>
+    <string name="mFirstNameTextview">الإسم الأول</string>
+    <string name="mLastNameTextView">إسم العائلة</string>
+    <string name="mEmailTextview">البريد الإلكتروني</string>
+    <string name="mPasswordTextView">كلمة السر</string>
 
 
     <string-array name="options">

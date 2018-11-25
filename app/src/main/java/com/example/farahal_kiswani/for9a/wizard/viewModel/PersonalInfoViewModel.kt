@@ -1,9 +1,12 @@
 package com.example.farahal_kiswani.for9a.wizard.viewModel
 
+import android.app.Activity
+import android.content.Context
 import android.databinding.BaseObservable
 import android.databinding.ObservableField
 import android.support.v4.app.FragmentManager
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import com.example.farahal_kiswani.for9a.wizard.interfaces.PersonalInfoFragmentCallback
 
 
@@ -27,5 +30,14 @@ class PersonalInfoViewModel(val personalInfoCallback: PersonalInfoFragmentCallba
     fun back (view:View)
     {
         personalInfoCallback.onBack()
+    }
+
+    fun hideSoftKeyboard(activity: Activity) {
+        val inputManager = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputManager.hideSoftInputFromWindow(
+            activity.currentFocus.getWindowToken(),
+            InputMethodManager.HIDE_NOT_ALWAYS
+        )
+
     }
 }

@@ -49,6 +49,7 @@
                             android:id="@+id/mBirthday"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:maxLength="10"
                             android:text="@={viewPersonalInfo.MBirthday}"
                             android:hint="@string/mBirthdayTextview"/>
 
@@ -63,6 +64,7 @@
                             android:id="@+id/mResidence"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:maxLength="10"
                             android:text="@={viewPersonalInfo.MResidence}"
                             android:hint="@string/mResidenceTextview"/>
 
@@ -77,6 +79,7 @@
                             android:id="@+id/mPhone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:maxLength="10"
                             android:text="@={viewPersonalInfo.MPhone}"
                             android:hint="@string/mPhoneTextview"/>
 
@@ -92,6 +95,7 @@
                             android:id="@+id/mEducationalLevel"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:maxLength="10"
                             android:text="@={viewPersonalInfo.MEducationalLevel}"
                             android:hint="@string/mEducationalLevelTextview"/>
 
@@ -107,6 +111,7 @@
                             android:id="@+id/mSpecialization"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:maxLength="10"
                             android:text="@={viewPersonalInfo.MSpecialization}"
                             android:hint="@string/mSpecializationTextView"/>
 

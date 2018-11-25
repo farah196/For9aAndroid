@@ -29,6 +29,7 @@ class PersonalinfoFragment : BaseWizaredFragment(), PersonalInfoFragmentCallback
             DataBindingUtil.inflate(inflater, R.layout.fragment_personalinfo, container, false)
         personalInfoViewModel = PersonalInfoViewModel(this)
         binding.viewPersonalInfo = personalInfoViewModel
+
         this.mCallback = wizaredCallback
 
         return binding.getRoot()
@@ -58,7 +59,7 @@ class PersonalinfoFragment : BaseWizaredFragment(), PersonalInfoFragmentCallback
         info.mEducationalLevel = mEducationalLevel
         info.mSpecialization = mSpecialization
         wizaredCallback!!.onNext(info, WizaredActivity.DataTypes.UserPersonalInfo)
-
+        personalInfoViewModel.hideSoftKeyboard(this.activity!!)
     }
     override fun onAttach(context: Context) {
         super.onAttach(context)

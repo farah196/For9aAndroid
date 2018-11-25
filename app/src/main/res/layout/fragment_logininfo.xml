@@ -42,7 +42,7 @@
                             android:maxLength="10"
                             android:text="@={viewLoginInfo.firstname}"
                             android:layout_alignParentBottom="true"
-                            android:hint=" الإسم الأول "/>
+                            android:hint="@string/mFirstNameTextview"/>
 
                 </android.support.design.widget.TextInputLayout>
                 <android.support.design.widget.TextInputLayout
@@ -58,7 +58,7 @@
                             android:maxLength="10"
                             android:text="@={viewLoginInfo.lastname}"
                             android:layout_alignParentBottom="true"
-                            android:hint="إسم العائلة"/>
+                            android:hint="@string/mLastNameTextView"/>
 
                 </android.support.design.widget.TextInputLayout>
                 <android.support.design.widget.TextInputLayout
@@ -74,7 +74,7 @@
                             android:maxLength="15"
                             android:text="@={viewLoginInfo.email}"
                             android:layout_alignParentBottom="true"
-                            android:hint="البريد الإلكتروني"/>
+                            android:hint="@string/mEmailTextview"/>
 
                 </android.support.design.widget.TextInputLayout>
                 <android.support.design.widget.TextInputLayout
@@ -92,7 +92,7 @@
                             android:text="@={viewLoginInfo.password}"
                             android:inputType="textPassword"
                             android:layout_alignParentBottom="true"
-                            android:hint="كلمة السر"/>
+                            android:hint="@string/mPasswordTextView"/>
 
                 </android.support.design.widget.TextInputLayout>
 

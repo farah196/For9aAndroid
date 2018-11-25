@@ -19,16 +19,15 @@ class FinalFragment : BaseWizaredFragment(),
 
     lateinit var finalViewModel: FinalViewModel
     var wizaredCallback: WizaredPagerCallback? = null
-
     override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val binding: FragmentFinalBinding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_final, container, false
         )
-
         finalViewModel = FinalViewModel(this)
         binding.viewFinal = finalViewModel
+
         this.mCallback =wizaredCallback
         return binding.getRoot()
 
