@@ -21,7 +21,7 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(
-            R.layout.filter_recycler_row,
+            R.layout.filter_main_recycler_row,
             FrameLayout(parent.context), false
         )
         return CategoryViewHolder(itemView)
