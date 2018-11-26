@@ -4,12 +4,12 @@ import android.databinding.BaseObservable
 import android.databinding.Bindable
 import android.text.TextUtils
 
-class CategoryItemViewModel (private val dataModel: FilterModel) : BaseObservable() {
+class CategoryItemViewModel (private val dataMainModel: FilterMainModel) : BaseObservable() {
 
 
     @Bindable
     fun getName(): String {
-        return if (!TextUtils.isEmpty(dataModel.getName())) dataModel.getName() else ""
+        return if (!TextUtils.isEmpty(dataMainModel.getName())) dataMainModel.getName() else ""
     }
 
 }

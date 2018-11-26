@@ -8,7 +8,7 @@
 
         <variable
                 name="viewRowFilter"
-                type="com.example.farahal_kiswani.for9a.filter.CategoryItemViewModel"/>
+                type="com.example.farahal_kiswani.for9a.filterMain.CategoryItemViewModel"/>
     </data>
     <android.support.v7.widget.CardView
 

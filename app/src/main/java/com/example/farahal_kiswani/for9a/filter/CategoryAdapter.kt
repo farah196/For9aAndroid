@@ -12,11 +12,11 @@ import com.example.farahal_kiswani.for9a.databinding.FilterRecyclerRowBinding
 import java.util.ArrayList
 
 class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
-    private val filter: MutableList<FilterModel>
+    private val filterMain: MutableList<FilterMainModel>
 
     init
     {
-        this.filter = ArrayList<FilterModel>()
+        this.filterMain = ArrayList<FilterMainModel>()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
@@ -28,7 +28,7 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>
     }
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-        val dataModel = filter[position]
+        val dataModel = filterMain[position]
         holder.setViewModel(CategoryItemViewModel(dataModel))
         when (position) {
             0 -> {
@@ -65,7 +65,7 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>
     }
 
     override fun getItemCount(): Int {
-        return this.filter.size
+        return this.filterMain.size
     }
 
     override fun onViewAttachedToWindow(holder: CategoryViewHolder) {
@@ -78,11 +78,11 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>
         holder.unbind()
     }
 
-    fun updateData(filter: List<FilterModel>?) {
-        if (filter == null || filter.isEmpty()) {
-            this.filter.clear()
+    fun updateData(filterMain: List<FilterMainModel>?) {
+        if (filterMain == null || filterMain.isEmpty()) {
+            this.filterMain.clear()
         } else {
-            this.filter.addAll(filter)
+            this.filterMain.addAll(filterMain)
         }
         notifyDataSetChanged()
     }

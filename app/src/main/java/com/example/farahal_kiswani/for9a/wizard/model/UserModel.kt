@@ -1,6 +1,5 @@
 package com.example.farahal_kiswani.for9a.wizard.model
 
-import android.app.Person
 
 
 class UserModel {

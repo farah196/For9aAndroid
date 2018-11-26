@@ -18,10 +18,10 @@
         <activity android:windowSoftInputMode="adjustResize"
                   android:name=".wizard.controller.WizaredActivity">
 
-            <intent-filter>
+            <intent-filterMain>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+            </intent-filterMain>
 
         </activity>
     </application>

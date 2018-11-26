@@ -1,6 +1,6 @@
 package com.example.farahal_kiswani.for9a.filter
 
-class FilterModel {
+class FilterMainModel {
     private var name: String? = null
 
 
