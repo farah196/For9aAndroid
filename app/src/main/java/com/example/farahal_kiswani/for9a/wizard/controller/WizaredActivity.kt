@@ -74,6 +74,29 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
         mFragment.setCallback(this)
         mFragments.add(mFragment)
 
+        mFragment = FilterFragment()
+        mFragment.setCallback(this)
+        mFragment.setType(Countries)
+
+        var mCountriesList:ArrayList<FilterItem> = getFilterItems(Countries)
+        (mFragment as FilterFragment).setFilterData(ArrayList())
+        mFragments.add(mFragment)
+
+
+        mFragment = FilterFragment()
+        mFragment.setCallback(this)
+        mFragment.setType(Interests)
+
+        mFragments.add(mFragment)
+
+
+
+
+        mFragment = FilterFragment()
+        mFragment.setCallback(this)
+        mFragment.setType(Categories)
+        mFragments.add(mFragment)
+
         mFragment = FinalFragment()
         mFragment.setCallback(this)
         mFragments.add(mFragment)

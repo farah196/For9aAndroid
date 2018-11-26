@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<layout
         xmlns:android="http://schemas.android.com/apk/res/android"
+
+>
+
+    <data>
+
+        <import type="android.view.View"/>
+        <variable
+                name="viewFilter"
+                type="com.example.farahal_kiswani.for9a.wizard.viewModel.FilterViewModel"/>
+    </data>
+<RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
@@ -12,3 +23,4 @@
             android:layout_height="wrap_content"
             android:scrollbars="vertical" />
 </RelativeLayout>
+</layout>

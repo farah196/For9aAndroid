@@ -29,7 +29,6 @@ class OpportunityActivity : AppCompatActivity() {
         initRecyclerView(view)
         initCategoryFilter(view)
         initDrawer(view)
-
     }
 
 
