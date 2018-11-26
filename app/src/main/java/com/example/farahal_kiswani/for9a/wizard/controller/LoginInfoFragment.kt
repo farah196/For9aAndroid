@@ -22,14 +22,14 @@ class LoginInfoFragment : BaseWizaredFragment(),
 
 
     lateinit var loginInfoViewModel: LoginInfoViewModel
-    var wizaredCallback: WizaredPagerCallback? = null
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val binding: FragmentLogininfoBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_logininfo, container, false)
         loginInfoViewModel = LoginInfoViewModel(this)
         binding.viewLoginInfo = loginInfoViewModel
-        this.mCallback = wizaredCallback
+
         return binding.getRoot()
 
     }
@@ -45,24 +45,10 @@ class LoginInfoFragment : BaseWizaredFragment(),
         if (firstname.equals("") || lastname.equals("") || email.equals("") || password.equals("")) {
             Toast.makeText(this.context, "أكمل بياناتك", Toast.LENGTH_LONG).show()
         } else {
-            wizaredCallback!!.onNext(info, WizaredActivity.DataTypes.UserLoginInfo)
+            mCallback!!.onNext(info, WizaredActivity.DataTypes.UserLoginInfo)
         }
     }
 
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        try {
-            wizaredCallback = context as WizaredPagerCallback
-        } catch (e: ClassCastException) {
-            throw ClassCastException(context.toString() + " must implement IFragmentToActivity")
-        }
 
-    }
-
-    override fun onDetach() {
-        wizaredCallback = null
-        super.onDetach()
-
-    }
 }

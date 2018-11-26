@@ -22,7 +22,7 @@ import com.example.farahal_kiswani.for9a.wizard.viewModel.PersonalInfoViewModel
 class PersonalinfoFragment : BaseWizaredFragment(), PersonalInfoFragmentCallback {
 
     lateinit var personalInfoViewModel: PersonalInfoViewModel
-    var wizaredCallback: WizaredPagerCallback? = null
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val binding: FragmentPersonalinfoBinding =
@@ -30,14 +30,13 @@ class PersonalinfoFragment : BaseWizaredFragment(), PersonalInfoFragmentCallback
         personalInfoViewModel = PersonalInfoViewModel(this)
         binding.viewPersonalInfo = personalInfoViewModel
 
-        this.mCallback = wizaredCallback
 
         return binding.getRoot()
 
     }
 
     override fun onBack() {
-        wizaredCallback!!.onBack()
+        mCallback!!.onBack()
     }
 
 
@@ -58,23 +57,8 @@ class PersonalinfoFragment : BaseWizaredFragment(), PersonalInfoFragmentCallback
         info.mPhone = mPhone
         info.mEducationalLevel = mEducationalLevel
         info.mSpecialization = mSpecialization
-        wizaredCallback!!.onNext(info, WizaredActivity.DataTypes.UserPersonalInfo)
+        mCallback!!.onNext(info, WizaredActivity.DataTypes.UserPersonalInfo)
         personalInfoViewModel.hideSoftKeyboard(this.activity!!)
-    }
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        try {
-            wizaredCallback = context as WizaredPagerCallback
-        } catch (e: ClassCastException) {
-            throw ClassCastException(context.toString() + " must implement IFragmentToActivity")
-        }
-
-    }
-
-    override fun onDetach() {
-        wizaredCallback = null
-        super.onDetach()
-
     }
 
 }

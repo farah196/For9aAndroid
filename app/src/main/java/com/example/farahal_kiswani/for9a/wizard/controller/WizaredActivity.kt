@@ -1,5 +1,6 @@
 package com.example.farahal_kiswani.for9a.wizard.controller
 
+import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 
@@ -10,6 +11,7 @@ import android.view.View
 import com.example.farahal_kiswani.for9a.R
 
 import com.example.farahal_kiswani.for9a.databinding.ActivityWizaredBinding
+import com.example.farahal_kiswani.for9a.opportunity.OpportunityActivity
 import com.example.farahal_kiswani.for9a.wizard.adapter.ViewPagerAdapter
 import com.example.farahal_kiswani.for9a.wizard.controller.WizaredActivity.DataTypes.*
 import com.example.farahal_kiswani.for9a.wizard.interfaces.WizaredPagerCallback
@@ -28,7 +30,8 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
         Countries,
         Interests,
         UserLoginInfo,
-        UserPersonalInfo;
+        UserPersonalInfo,
+        None;
     }
 
     var user: UserModel = UserModel()
@@ -82,10 +85,13 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
 
     }
 
+    override fun onFinish(ob: Any?, dataType: DataTypes) {
+        val intent = Intent(this, OpportunityActivity::class.java)
+        startActivity(intent)
 
-    override fun onFinish() {
-        wizaredViewModel.OpenMainActivity(this)
     }
+
+
 
     override fun onNext(ob: Any, dataType: DataTypes) {
         saveData(ob, dataType)
@@ -94,7 +100,7 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
 
             viewPager.currentItem = currentFragmentPosition
         } else {
-            onFinish()
+            onFinish(ob,dataType)
         }
     }
 
@@ -113,6 +119,7 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
             UserLoginInfo -> saveLoginInfo(ob as UserModel.LoginInfo)
             UserPersonalInfo -> savePersonalInfo(ob as UserModel.PersonalInfo)
             Categories -> TODO()
+            None-> TODO()
         }
     }
 
