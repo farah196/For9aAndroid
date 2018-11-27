@@ -18,7 +18,7 @@ import com.example.farahal_kiswani.for9a.wizard.util.BaseWizaredFragment
 import com.example.farahal_kiswani.for9a.wizard.viewModel.FilterViewModel
 import com.example.farahal_kiswani.for9a.wizard.viewModel.FinalViewModel
 
-class FilterFragment :BaseWizaredFragment(),FilterCallback{
+class FilterFragment :BaseWizaredFragment(){
 
 
     lateinit var filterViewModel:FilterViewModel
@@ -53,27 +53,26 @@ class FilterFragment :BaseWizaredFragment(),FilterCallback{
 
 
 
-    fun setFilterData(data:ArrayList<FilterModel>){
-
-    }
 
 
 
 
-    override fun getData(mData: ArrayList<FilterModel>) {
-        val item:FilterModel= FilterModel(fragmentType)
+     fun getData(mData: ArrayList<FilterModel>) {
+        val item:FilterModel= FilterModel("",false,"",fragmentType)
+
         if(item.isSelect()){
             if(fragmentType== WizaredActivity.DataTypes.Countries){
-                mCallback!!.onNext(setFilterData(),WizaredActivity.DataTypes.Countries)
+                item.getText()
+                mCallback!!.onNext(mData,WizaredActivity.DataTypes.Countries)
 
             }
             if(fragmentType== WizaredActivity.DataTypes.Categories){
-                mCallback!!.onNext(setFilterData(),WizaredActivity.DataTypes.Categories)
+                mCallback!!.onNext(mData,WizaredActivity.DataTypes.Categories)
 
             }
 
             if(fragmentType== WizaredActivity.DataTypes.Interests){
-                mCallback!!.onNext(setFilterData(),WizaredActivity.DataTypes.Interests)
+                mCallback!!.onNext(mData,WizaredActivity.DataTypes.Interests)
 
             }
         }

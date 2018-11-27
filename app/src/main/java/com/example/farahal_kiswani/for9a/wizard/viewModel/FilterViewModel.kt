@@ -4,13 +4,13 @@ import android.databinding.BaseObservable
 import android.databinding.Bindable
 import android.view.View
 import com.example.farahal_kiswani.for9a.wizard.adapter.FilterRecyclerAdapter
+import com.example.farahal_kiswani.for9a.wizard.controller.WizaredActivity
 import com.example.farahal_kiswani.for9a.wizard.interfaces.FilterCallback
 import com.example.farahal_kiswani.for9a.wizard.model.FilterModel
 
-class FilterViewModel(val call: FilterCallback): BaseObservable() {
+class FilterViewModel: BaseObservable() {
     private var adapter: FilterRecyclerAdapter? = null
     private var data: MutableList<FilterModel>? = null
-    var mList : ArrayList<FilterModel> = ArrayList<FilterModel>()
 
     init {
         data = ArrayList<FilterModel>() as MutableList<FilterModel>?
@@ -27,8 +27,7 @@ class FilterViewModel(val call: FilterCallback): BaseObservable() {
         return this.adapter!!
     }
 
-//    fun getData(view: View)
-//    {
-//        call.getData(mList)
-//    }
+
+
+
 }

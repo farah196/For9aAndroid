@@ -14,11 +14,11 @@ class FilterItemViewModel(private val dataModel: FilterModel) :BaseObservable(){
     }
 
 
-    @Bindable
-    fun getChecked(): String
-    {
-        return if (!TextUtils.isEmpty(dataModel.isSelect())) dataModel.isSelect() else ""
-    }
+//    @Bindable
+//    fun getChecked(): String
+//    {
+//        return if (!TextUtils.isEmpty(dataModel.isSelect())) dataModel.isSelect() else ""
+//    }
 
 
 }

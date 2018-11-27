@@ -43,7 +43,7 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
     var mFragments = ArrayList<BaseWizaredFragment>()
     var currentFragmentPosition = 0
     var mAdapter: ViewPagerAdapter? = null
-
+val mFilterFragment:FilterFragment = FilterFragment()
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
@@ -82,16 +82,16 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
 
        mFragment.setType(Countries)
 
-        var mCountriesList:ArrayList<FilterModel> = getFilterItems(Countries)
-        (mFragment as FilterFragment).setFilterData(ArrayList())
+        val mCountriesList:ArrayList<FilterModel> = getFilterItems(Countries)
+        (mFragment as FilterFragment).getData(mCountriesList)
         mFragments.add(mFragment)
 
 
         mFragment = FilterFragment()
         mFragment.setCallback(this)
         mFragment.setType(Interests)
-        var mInterestList:ArrayList<FilterModel> = getFilterItems(Interests)
-        (mFragment as FilterFragment).setFilterData(ArrayList())
+        val mInterestList:ArrayList<FilterModel> = getFilterItems(Interests)
+        (mFragment as FilterFragment).getData(mInterestList)
         mFragments.add(mFragment)
 
 
@@ -102,7 +102,7 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
         mFragment.setCallback(this)
         mFragment.setType(Categories)
         val mCategoryList:ArrayList<FilterModel> = getFilterItems(Categories)
-        (mFragment as FilterFragment).setFilterData(mCategoryList)
+        (mFragment as FilterFragment).getData(mCategoryList)
         mFragments.add(mFragment)
 
         mFragment = FinalFragment()
@@ -123,9 +123,29 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
     }
 
     private fun getFilterItems(dataType: DataTypes): ArrayList<FilterModel> {
+     val   interestOb:FilterModel =FilterModel("تبادل ثقافي",true,"2",Interests)
+        val  countryOb:FilterModel =FilterModel("مصر",true,"2",Countries)
+        val   categoryOb:FilterModel =FilterModel("علوم",true,"2",Categories)
+
+        val interestList: ArrayList<FilterModel> = ArrayList()
+        interestList.add(interestOb)
+
+
+        val categoryList: ArrayList<FilterModel> = ArrayList()
+        interestList.add(categoryOb)
+
+
+        val countryList: ArrayList<FilterModel> = ArrayList()
+        interestList.add(countryOb)
+
+
         when(dataType){
+            Countries -> return countryList
+            Interests ->return interestList
+            Categories->return categoryList
 
         }
+        return categoryList
     }
 
     override fun onNext(ob: Any, dataType: DataTypes) {

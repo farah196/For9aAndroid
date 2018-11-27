@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 
-class CountriesModel(name:String, code:String,filterType: WizaredActivity.DataTypes):Serializable,FilterModel(filterType) {
+class CountriesModel(name:String, code:String,filterType: WizaredActivity.DataTypes):Serializable,FilterModel("",false,"",filterType) {
     @SerializedName("title")
    var name:String
     @SerializedName("code")

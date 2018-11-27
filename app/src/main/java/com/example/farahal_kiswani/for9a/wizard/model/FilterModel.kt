@@ -2,12 +2,22 @@ package com.example.farahal_kiswani.for9a.wizard.model
 
 import com.example.farahal_kiswani.for9a.wizard.controller.WizaredActivity
 
-open class FilterModel(dataTypes: WizaredActivity.DataTypes) {
+open class FilterModel(var mTitle:String,var selected: Boolean,var mId: String,dataTypes: WizaredActivity.DataTypes) {
 
 
-    lateinit var mTitle: String
-    var selected: Boolean = false
-    lateinit var mId: String
+
+
+    fun setText(text: String) {
+        this.mTitle = text
+    }
+
+    fun setSelect(select: Boolean) {
+        this.selected = select
+    }
+
+    fun setID(id: String) {
+        this.mId = id
+    }
 
     fun getText():String {
         return  mTitle
