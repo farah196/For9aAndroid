@@ -1,10 +1,11 @@
 package com.example.farahal_kiswani.for9a.wizard.model
 
+import com.example.farahal_kiswani.for9a.wizard.controller.WizaredActivity
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 
-class CountriesModel(name:String, code:String):Serializable {
+class CountriesModel(name:String, code:String,filterType: WizaredActivity.DataTypes):Serializable,FilterModel(filterType) {
     @SerializedName("title")
    var name:String
     @SerializedName("code")

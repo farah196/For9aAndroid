@@ -2,13 +2,15 @@ package com.example.farahal_kiswani.for9a.wizard.viewModel
 
 import android.databinding.BaseObservable
 import android.databinding.Bindable
+import android.view.View
 import com.example.farahal_kiswani.for9a.wizard.adapter.FilterRecyclerAdapter
-import com.example.farahal_kiswani.for9a.wizard.controller.WizaredActivity
+import com.example.farahal_kiswani.for9a.wizard.interfaces.FilterCallback
 import com.example.farahal_kiswani.for9a.wizard.model.FilterModel
 
-class FilterViewModel: BaseObservable() {
+class FilterViewModel(val call: FilterCallback): BaseObservable() {
     private var adapter: FilterRecyclerAdapter? = null
     private var data: MutableList<FilterModel>? = null
+    var mList : ArrayList<FilterModel> = ArrayList<FilterModel>()
 
     init {
         data = ArrayList<FilterModel>() as MutableList<FilterModel>?
@@ -25,10 +27,8 @@ class FilterViewModel: BaseObservable() {
         return this.adapter!!
     }
 
-    fun fetchCountryData ()
-    {
-        val dataModel = FilterModel(WizaredActivity.DataTypes.Countries)
-        dataModel.countriesModel.name= "bla"
-    }
-
+//    fun getData(view: View)
+//    {
+//        call.getData(mList)
+//    }
 }

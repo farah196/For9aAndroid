@@ -10,15 +10,15 @@ class FilterItemViewModel(private val dataModel: FilterModel) :BaseObservable(){
     @Bindable
     fun getTitle(): String
     {
-        return if (!TextUtils.isEmpty(dataModel.IdTitleModel.getTitle())) dataModel.IdTitleModel.getTitle()!! else ""
+        return if (!TextUtils.isEmpty(dataModel.getText())) dataModel.getText() else ""
     }
 
 
-//    @Bindable
-//    fun getChecked(): String
-//    {
-//        return if (!TextUtils.isEmpty(dataModel.IdTitleModel.isChecked())) dataModel.IdTitleModel.isChecked()!! else ""
-//    }
-//
+    @Bindable
+    fun getChecked(): String
+    {
+        return if (!TextUtils.isEmpty(dataModel.isSelect())) dataModel.isSelect() else ""
+    }
+
 
 }

@@ -133,7 +133,7 @@
                                         android:background="@color/white"
                                         android:layout_height="wrap_content"
                                         app:adapter="@{viewListOpp.category}"
-                                        app:data="@{viewListOpp.filterMain}"/>
+                                        app:data="@{viewListOpp.filter}"/>
                             </LinearLayout>
                         </RelativeLayout>
 

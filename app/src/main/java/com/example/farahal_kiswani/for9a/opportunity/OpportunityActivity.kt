@@ -1,11 +1,8 @@
 package com.example.farahal_kiswani.for9a.opportunity
 
 import android.content.Context
-import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v4.view.GravityCompat
-import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
@@ -15,7 +12,6 @@ import android.view.View
 import android.widget.ImageButton
 import com.example.farahal_kiswani.for9a.R
 import com.example.farahal_kiswani.for9a.databinding.ActivityOpportunityBinding
-import com.example.farahal_kiswani.for9a.learn.LearnActivity
 import kotlinx.android.synthetic.main.activity_opportunity.*
 
 class OpportunityActivity : AppCompatActivity() {

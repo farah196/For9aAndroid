@@ -15,6 +15,7 @@ import com.example.farahal_kiswani.for9a.opportunity.OpportunityActivity
 import com.example.farahal_kiswani.for9a.wizard.adapter.ViewPagerAdapter
 import com.example.farahal_kiswani.for9a.wizard.controller.WizaredActivity.DataTypes.*
 import com.example.farahal_kiswani.for9a.wizard.interfaces.WizaredPagerCallback
+import com.example.farahal_kiswani.for9a.wizard.model.FilterModel
 import com.example.farahal_kiswani.for9a.wizard.model.UserModel
 import com.example.farahal_kiswani.for9a.wizard.util.BaseWizaredFragment
 import com.example.farahal_kiswani.for9a.wizard.util.CustomViewPager
@@ -43,7 +44,8 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
     var currentFragmentPosition = 0
     var mAdapter: ViewPagerAdapter? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?)
+    {
         super.onCreate(savedInstanceState)
         val view: View = bind()
         initViewPager(view)
@@ -77,27 +79,30 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
 
         mFragment = FilterFragment()
         mFragment.setCallback(this)
-        val filter :FilterViewModel = FilterViewModel()
-        filter.fetchCountryData()
-    //    mFragment.setType(Countries)
 
-//        var mCountriesList:ArrayList<FilterItem> = getFilterItems(Countries)
-//        (mFragment as FilterFragment).setFilterData(ArrayList())
-//        mFragments.add(mFragment)
+       mFragment.setType(Countries)
+
+        var mCountriesList:ArrayList<FilterModel> = getFilterItems(Countries)
+        (mFragment as FilterFragment).setFilterData(ArrayList())
+        mFragments.add(mFragment)
 
 
         mFragment = FilterFragment()
         mFragment.setCallback(this)
-    //    mFragment.setType(Interests)
-
+        mFragment.setType(Interests)
+        var mInterestList:ArrayList<FilterModel> = getFilterItems(Interests)
+        (mFragment as FilterFragment).setFilterData(ArrayList())
         mFragments.add(mFragment)
 
 
 
 
+
         mFragment = FilterFragment()
         mFragment.setCallback(this)
-     //   mFragment.setType(Categories)
+        mFragment.setType(Categories)
+        val mCategoryList:ArrayList<FilterModel> = getFilterItems(Categories)
+        (mFragment as FilterFragment).setFilterData(mCategoryList)
         mFragments.add(mFragment)
 
         mFragment = FinalFragment()
@@ -117,7 +122,11 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
 
     }
 
+    private fun getFilterItems(dataType: DataTypes): ArrayList<FilterModel> {
+        when(dataType){
 
+        }
+    }
 
     override fun onNext(ob: Any, dataType: DataTypes) {
         saveData(ob, dataType)

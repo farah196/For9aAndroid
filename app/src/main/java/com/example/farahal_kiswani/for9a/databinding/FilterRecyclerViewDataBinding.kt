@@ -11,4 +11,6 @@ class FilterRecyclerViewDataBinding {
         recyclerView.adapter = adapter
         adapter.updateData(data)
     }
+
+
 }
