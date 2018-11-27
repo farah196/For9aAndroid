@@ -2,9 +2,8 @@ package com.example.farahal_kiswani.for9a.wizard.viewModel
 
 import android.databinding.BaseObservable
 import android.databinding.Bindable
-import com.example.farahal_kiswani.for9a.opportunity.OpportunityAdapter
-import com.example.farahal_kiswani.for9a.opportunity.OpportunityModel
 import com.example.farahal_kiswani.for9a.wizard.adapter.FilterRecyclerAdapter
+import com.example.farahal_kiswani.for9a.wizard.controller.WizaredActivity
 import com.example.farahal_kiswani.for9a.wizard.model.FilterModel
 
 class FilterViewModel: BaseObservable() {
@@ -24,6 +23,12 @@ class FilterViewModel: BaseObservable() {
     @Bindable
     fun getAdapter(): FilterRecyclerAdapter {
         return this.adapter!!
+    }
+
+    fun fetchCountryData ()
+    {
+        val dataModel = FilterModel(WizaredActivity.DataTypes.Countries)
+        dataModel.countriesModel.name= "bla"
     }
 
 }

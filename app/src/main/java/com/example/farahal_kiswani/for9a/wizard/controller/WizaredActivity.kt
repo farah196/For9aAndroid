@@ -18,6 +18,7 @@ import com.example.farahal_kiswani.for9a.wizard.interfaces.WizaredPagerCallback
 import com.example.farahal_kiswani.for9a.wizard.model.UserModel
 import com.example.farahal_kiswani.for9a.wizard.util.BaseWizaredFragment
 import com.example.farahal_kiswani.for9a.wizard.util.CustomViewPager
+import com.example.farahal_kiswani.for9a.wizard.viewModel.FilterViewModel
 import com.example.farahal_kiswani.for9a.wizard.viewModel.WizaredViewModel
 
 import java.util.ArrayList
@@ -76,25 +77,27 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
 
         mFragment = FilterFragment()
         mFragment.setCallback(this)
-        mFragment.setType(Countries)
+        val filter :FilterViewModel = FilterViewModel()
+        filter.fetchCountryData()
+    //    mFragment.setType(Countries)
 
-        var mCountriesList:ArrayList<FilterItem> = getFilterItems(Countries)
-        (mFragment as FilterFragment).setFilterData(ArrayList())
-        mFragments.add(mFragment)
-
-
-        mFragment = FilterFragment()
-        mFragment.setCallback(this)
-        mFragment.setType(Interests)
-
-        mFragments.add(mFragment)
-
-
+//        var mCountriesList:ArrayList<FilterItem> = getFilterItems(Countries)
+//        (mFragment as FilterFragment).setFilterData(ArrayList())
+//        mFragments.add(mFragment)
 
 
         mFragment = FilterFragment()
         mFragment.setCallback(this)
-        mFragment.setType(Categories)
+    //    mFragment.setType(Interests)
+
+        mFragments.add(mFragment)
+
+
+
+
+        mFragment = FilterFragment()
+        mFragment.setCallback(this)
+     //   mFragment.setType(Categories)
         mFragments.add(mFragment)
 
         mFragment = FinalFragment()

@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import com.example.farahal_kiswani.for9a.R
-import com.example.farahal_kiswani.for9a.databinding.FilterRecyclerRowBinding
+import com.example.farahal_kiswani.for9a.databinding.FilterMainRecyclerRowBinding
 import java.util.ArrayList
 
 class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
@@ -88,7 +88,7 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>
     }
 
     class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var binding: FilterRecyclerRowBinding? = null
+        var binding: FilterMainRecyclerRowBinding? = null
 
         init {
             bind()
@@ -96,13 +96,13 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>
 
         fun bind() {
             if (binding == null) {
-                binding = DataBindingUtil.bind<FilterRecyclerRowBinding>(itemView)
+                binding = DataBindingUtil.bind<FilterMainRecyclerRowBinding>(itemView)
             }
         }
 
         fun unbind() {
             if (binding != null) {
-                binding!!.unbind() // Don't forget to unbind
+                binding!!.unbind()
             }
         }
 
