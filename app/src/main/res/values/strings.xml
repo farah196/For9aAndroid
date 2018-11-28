@@ -18,6 +18,7 @@
     <string name="next">التالي</string>
     <string name="mSignUp">تسجيل</string>
     <string name="newUser">مستخدم جديد</string>
+    <string name="userInfo">معلومات المستخدم</string>
 
 
     <string-array name="options">
