@@ -8,4 +8,5 @@ interface WizaredPagerCallback {
     fun onFinish(ob: Any?, dataType: WizaredActivity.DataTypes)
     fun onBack()
 
+
 }

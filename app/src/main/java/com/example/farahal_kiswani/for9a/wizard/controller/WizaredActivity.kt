@@ -12,16 +12,19 @@ import com.example.farahal_kiswani.for9a.R
 
 import com.example.farahal_kiswani.for9a.databinding.ActivityWizaredBinding
 import com.example.farahal_kiswani.for9a.opportunity.OpportunityActivity
+import com.example.farahal_kiswani.for9a.opportunity.OpportunityModel
 import com.example.farahal_kiswani.for9a.wizard.adapter.ViewPagerAdapter
 import com.example.farahal_kiswani.for9a.wizard.controller.WizaredActivity.DataTypes.*
 import com.example.farahal_kiswani.for9a.wizard.interfaces.WizaredPagerCallback
 import com.example.farahal_kiswani.for9a.wizard.model.FilterModel
+import com.example.farahal_kiswani.for9a.wizard.model.IdTitleModel
 import com.example.farahal_kiswani.for9a.wizard.model.UserModel
 import com.example.farahal_kiswani.for9a.wizard.util.BaseWizaredFragment
 import com.example.farahal_kiswani.for9a.wizard.util.CustomViewPager
 import com.example.farahal_kiswani.for9a.wizard.viewModel.WizaredViewModel
 
 import java.util.ArrayList
+import java.util.logging.Filter
 
 class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
 
@@ -42,9 +45,8 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
     var mFragments = ArrayList<BaseWizaredFragment>()
     var currentFragmentPosition = 0
     var mAdapter: ViewPagerAdapter? = null
-    val mFilterFragment:FilterFragment = FilterFragment()
-    override fun onCreate(savedInstanceState: Bundle?)
-    {
+    val mFilterFragment: FilterFragment = FilterFragment()
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val view: View = bind()
         initViewPager(view)
@@ -69,7 +71,7 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
         var mFragment: BaseWizaredFragment =
             LoginInfoFragment()
         mFragment.setCallback(this)
-        mFragments.add(mFragment)
+      mFragments.add(mFragment)
 
 
         mFragment = PersonalinfoFragment()
@@ -81,7 +83,7 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
         mFragment = FilterFragment()
         mFragment.setCallback(this)
         mFragment.setType(Countries)
-        val mCountriesList:ArrayList<FilterModel> = getFilterItems(Countries)
+        val mCountriesList: ArrayList<FilterModel> = getFilterItems(Countries)
         (mFragment as FilterFragment).setData(mCountriesList)
         mFragments.add(mFragment)
 
@@ -89,7 +91,7 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
         mFragment = FilterFragment()
         mFragment.setCallback(this)
         mFragment.setType(Interests)
-        val mInterestList:ArrayList<FilterModel> = getFilterItems(Interests)
+        val mInterestList: ArrayList<FilterModel> = getFilterItems(Interests)
         (mFragment as FilterFragment).setData(mInterestList)
         mFragments.add(mFragment)
 
@@ -98,7 +100,7 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
         mFragment = FilterFragment()
         mFragment.setCallback(this)
         mFragment.setType(Categories)
-        val mCategoryList:ArrayList<FilterModel> = getFilterItems(Categories)
+        val mCategoryList: ArrayList<FilterModel> = getFilterItems(Categories)
         (mFragment as FilterFragment).setData(mCategoryList)
         mFragments.add(mFragment)
 
@@ -123,31 +125,73 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
 
     private fun getFilterItems(dataType: DataTypes): ArrayList<FilterModel> {
 
-        when(dataType){
+        when (dataType) {
             Countries -> return getCountriesFilters()
-            Interests ->return interestList
-            Categories->return categoryList
-
+            Interests -> return getInterestsFilters()
+            Categories -> return getCategoriesFilters()
         }
 
-        val  interestOb:FilterModel =FilterModel(Interests)
-        val  countryOb:FilterModel =FilterModel(Countries)
-        val  categoryOb:FilterModel =FilterModel(Categories)
+        return getCategoriesFilters()
+    }
 
-        val interestList: ArrayList<FilterModel> = ArrayList()
-        interestList.add(interestOb)
+    fun getCategoriesFilters(): ArrayList<FilterModel> {
+        val titles: ArrayList<String> = ArrayList()
+        val filterList: ArrayList<FilterModel> = ArrayList()
+        titles.add("تبادل ثقافي")
+        titles.add("فرص عمل")
+        titles.add("فرص تعليم")
+        titles.add("منحة مالية")
+        titles.add(" دورات عبر الإنترنت")
+        for (i in 0 until titles.size) {
+            val filterModel = FilterModel(Categories)
+            filterModel.setText(titles[i])
+            filterList.add(filterModel)
+        }
+
+        return filterList
+    }
+
+    fun getInterestsFilters(): ArrayList<FilterModel> {
+        val titles: ArrayList<String> = ArrayList()
+        val filterList: ArrayList<FilterModel> = ArrayList()
+
+        titles.add("زراعة")
+        titles.add("علوم")
+        titles.add("رياضة")
+        titles.add("فنون")
 
 
-        val categoryList: ArrayList<FilterModel> = ArrayList()
-        interestList.add(categoryOb)
+        for (i in 0 until titles.size)
+        {
+            val filterModel = FilterModel(Interests)
+            filterModel.setText(titles[i])
+            filterList.add(filterModel)
+        }
+
+        return filterList
+    }
+
+    fun getCountriesFilters(): ArrayList<FilterModel> {
+        val titles: ArrayList<String> = ArrayList()
+        val filterList: ArrayList<FilterModel> = ArrayList()
+
+        titles.add("الاردن")
+        titles.add("مصر")
+        titles.add("السودان")
+        titles.add("المغرب")
+        titles.add("فلسطين")
 
 
-        val countryList: ArrayList<FilterModel> = ArrayList()
-        interestList.add(countryOb)
+        for (i in 0 until titles.size)
+        {
+            val filterModel = FilterModel(Countries)
+            filterModel.setText(titles[i])
+            filterList.add(filterModel)
+        }
+
+        return filterList
 
 
-
-        return categoryList
     }
 
     override fun onNext(ob: Any, dataType: DataTypes) {
@@ -157,7 +201,7 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
 
             viewPager.currentItem = currentFragmentPosition
         } else {
-            onFinish(ob,dataType)
+            onFinish(ob, dataType)
         }
     }
 
@@ -171,12 +215,10 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
 
     fun saveData(ob: Any, dt: DataTypes) {
         when (dt) {
-            Countries -> TODO()
-            Interests -> TODO()
+
             UserLoginInfo -> saveLoginInfo(ob as UserModel.LoginInfo)
             UserPersonalInfo -> savePersonalInfo(ob as UserModel.PersonalInfo)
-            Categories -> TODO()
-            None-> TODO()
+
         }
     }
 

@@ -44,6 +44,6 @@ class FilterViewModel(val filterData: ArrayList<FilterModel>, val filterCallback
     }
 
     fun saveData(view: View) {
-        filterCallback.getData(filterData)
+        filterCallback.saveData(filterData)
     }
 }

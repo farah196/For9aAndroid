@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import com.example.farahal_kiswani.for9a.R
 import com.example.farahal_kiswani.for9a.databinding.CategoryFilterViewDataBinding
 import com.example.farahal_kiswani.for9a.databinding.FilterFragmentBinding
+import com.example.farahal_kiswani.for9a.wizard.adapter.FilterRecyclerAdapter
 import com.example.farahal_kiswani.for9a.wizard.interfaces.FilterCallback
 import com.example.farahal_kiswani.for9a.wizard.model.CountryModel
 import com.example.farahal_kiswani.for9a.wizard.model.FilterModel
@@ -30,9 +31,11 @@ class FilterFragment : BaseWizaredFragment(), View.OnClickListener, FilterCallba
         )
         filterViewModel = FilterViewModel(filterList,this)
         filterViewModel.mCallback = this
+        binding.mRecyclerFilter.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, true)
+        filterViewModel.filterAdapter.mCallback = this
+        filterViewModel.filterAdapter.updateData(filterList)
         binding.viewFilter = filterViewModel
 
-        binding.mRecyclerFilter.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, true)
         return binding.getRoot()
 
     }
@@ -42,21 +45,17 @@ class FilterFragment : BaseWizaredFragment(), View.OnClickListener, FilterCallba
         val position: Int = mRecyclerFilter.getChildAdapterPosition(v!!)
         val mItem: FilterModel = filterViewModel.filterAdapter.data.get(position)
         mItem.setSelect(!mItem.isSelect())
-        filterViewModel.filterAdapter.data.set(position, mItem);
+        filterViewModel.filterAdapter.data.set(position, mItem)
         filterViewModel.filterAdapter.notifyItemChanged(position)
     }
 
     fun setData(mData: ArrayList<FilterModel>) {
         this.filterList = mData
+
     }
 
 
-    override fun getData(mData: ArrayList<FilterModel>) {
-        saveData(mData)
-    }
-
-
-    fun saveData(mData: ArrayList<FilterModel>) {
+    override fun saveData(mData: ArrayList<FilterModel>) {
         val item: FilterModel = mData.get(0)
 
         when (item.getType()) {
