@@ -17,7 +17,7 @@ class FilterRecyclerAdapter : RecyclerView.Adapter<FilterRecyclerAdapter.FilterV
 
 
 
-    public val data: MutableList<FilterModel>
+    val data: MutableList<FilterModel>
     lateinit var mCallback:View.OnClickListener
 
     init {
@@ -28,27 +28,25 @@ class FilterRecyclerAdapter : RecyclerView.Adapter<FilterRecyclerAdapter.FilterV
 
         val itemView = LayoutInflater.from(parent.context).inflate(
             R.layout.filter_row,
-            FrameLayout(parent.context), false
+            parent, false
 
         )
-        return FilterViewHolder(itemView)
+        val holder:FilterViewHolder = FilterViewHolder(itemView)
+        holder.bind(this)
+
+        return holder
     }
 
     override fun onBindViewHolder(holder: FilterViewHolder, position: Int) {
         val dataModel = data[position]
-
         holder.setViewModel(FilterItemViewModel(dataModel))
+        holder.binding!!.
+            mChkSelected.setChecked(dataModel.isSelect(),true)
     }
 
     override fun getItemCount(): Int {
         return this.data.size
     }
-
-    override fun onViewAttachedToWindow(holder: FilterViewHolder) {
-        super.onViewAttachedToWindow(holder)
-        holder.bind(this)
-    }
-
     override fun onViewDetachedFromWindow(holder: FilterViewHolder) {
         super.onViewDetachedFromWindow(holder)
         holder.unbind()
@@ -64,7 +62,7 @@ class FilterRecyclerAdapter : RecyclerView.Adapter<FilterRecyclerAdapter.FilterV
     }
 
     override fun onClick(v: View?) {
-
+        mCallback.onClick(v)
     }
 
 
@@ -77,7 +75,8 @@ class FilterRecyclerAdapter : RecyclerView.Adapter<FilterRecyclerAdapter.FilterV
         fun bind(listener:View.OnClickListener) {
             if (binding == null) {
                 binding = DataBindingUtil.bind<FilterRowBinding>(itemView)
-                itemView.setOnClickListener(listener)
+                binding!!.clickableLayer.setOnClickListener(listener)
+
             }
         }
 

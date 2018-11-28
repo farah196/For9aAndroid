@@ -18,7 +18,7 @@ class FilterViewModel(val filterData: ArrayList<FilterModel>, val filterCallback
     var filterAdapter: FilterRecyclerAdapter
     private var data: MutableList<FilterModel>? = null
     lateinit var mCallback: View.OnClickListener
-
+     var filterTitle: String ?= null
 
     init {
         data = filterData
@@ -32,6 +32,14 @@ class FilterViewModel(val filterData: ArrayList<FilterModel>, val filterCallback
         mCallback.onClick(v)
     }
 
+
+    fun getfilterTitle(): String? {
+        return this.filterTitle
+    }
+
+    fun setfilterTitle(title: String) {
+        this.filterTitle = title
+    }
 
     @Bindable
     fun getData(): List<FilterModel> {

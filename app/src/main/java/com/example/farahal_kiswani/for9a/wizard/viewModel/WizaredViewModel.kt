@@ -29,8 +29,4 @@ class WizaredViewModel (fragmentManger: FragmentManager) : BaseObservable() {
         return this.adapter!!
     }
 
-    fun OpenMainActivity(mContext: Context) {
-        val intent = Intent(mContext, OpportunityActivity::class.java)
-        ContextCompat.startActivity(mContext, intent, Bundle())
-    }
 }

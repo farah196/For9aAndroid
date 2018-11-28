@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
-        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
 
 >
 
@@ -11,26 +12,56 @@
                 name="viewFilter"
                 type="com.example.farahal_kiswani.for9a.wizard.viewModel.FilterViewModel"/>
     </data>
-<RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
->
-
-    <android.support.v7.widget.RecyclerView
-            android:id="@+id/mRecyclerFilter"
+    <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scrollbars="vertical"
-            app:adapter="@{viewFilter.filterAdapter}"
-            app:data="@{viewFilter.filterData}"
-    />
+            android:layout_height="match_parent"
+            android:background="@color/white"
+    >
+        <TextView
+                android:id="@+id/mFilterTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewFilter.filterTitle}"
+                android:layout_centerInParent="true"
+                android:layout_alignParentTop="true"
+                android:textSize="28sp"
+                android:layout_margin="15dp"
+                android:textColor="@color/colorAccent"
 
+        />
 
-    <Button android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true"
-    android:text="التالي"
-    android:onClick="@{(v)->viewFilter.saveData(v)}"/>
-</RelativeLayout>
+        <android.support.v7.widget.RecyclerView
+                android:layout_below="@+id/mFilterTitle"
+                android:id="@+id/mRecyclerFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"
+                app:adapter="@{viewFilter.filterAdapter}"
+                app:data="@{viewFilter.filterData}"
+        />
+        <FrameLayout android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+
+                     android:layout_alignParentBottom="true">
+            <RelativeLayout android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                <Button android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@color/colorAccent"
+                />
+
+                <Button android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        style="@style/Widget.AppCompat.Button"
+                        android:text="@string/next"
+                        android:layout_margin="8dp"
+                        android:layout_alignParentRight="true"
+                        android:textSize="15sp"
+                        android:background="@color/white"
+                        android:onClick="@{(v)->viewFilter.saveData(v)}"/>
+            </RelativeLayout>
+
+        </FrameLayout>
+
+    </RelativeLayout>
 </layout>

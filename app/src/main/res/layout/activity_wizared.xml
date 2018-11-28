@@ -22,34 +22,14 @@
                 android:background="@color/colorPrimary"
         />
 
-        <android.support.design.widget.TabLayout
-                android:id="@+id/tabs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/toolbar"
-                android:background="@color/white"
-                android:layoutDirection="rtl"/>
-
-
-        <!--<com.example.farahal_kiswani.for9a.wizard.util.CustomViewPager-->
-        <!--android:id="@+id/viewpager"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_below="@+id/tabs" />-->
 
 
         <com.example.farahal_kiswani.for9a.wizard.util.CustomViewPager
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/viewpager"
-                android:layout_below="@+id/tabs"
+                android:layout_below="@+id/toolbar"
                />
-        <FrameLayout
-                     android:id="@+id/fragment_container"
-                     android:layout_width="match_parent"
-                     android:layout_height="match_parent"
-                    >
 
-        </FrameLayout>
     </RelativeLayout>
 </layout>
