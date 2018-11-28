@@ -16,7 +16,8 @@
     <string name="mEmailTextview">البريد الإلكتروني</string>
     <string name="mPasswordTextView">كلمة السر</string>
     <string name="next">التالي</string>
-
+    <string name="mSignUp">تسجيل</string>
+    <string name="newUser">مستخدم جديد</string>
 
 
     <string-array name="options">

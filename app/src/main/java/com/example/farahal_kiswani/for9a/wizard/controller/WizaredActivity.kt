@@ -136,35 +136,52 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
 
     fun getCategoriesFilters(): ArrayList<FilterModel> {
         val titles: ArrayList<String> = ArrayList()
-        val filterList: ArrayList<FilterModel> = ArrayList()
         titles.add("تبادل ثقافي")
         titles.add("فرص عمل")
         titles.add("فرص تعليم")
         titles.add("منحة مالية")
         titles.add(" دورات عبر الإنترنت")
+        val codeList : ArrayList<String> = ArrayList()
+        codeList.add ("101")
+        codeList.add ("102")
+        codeList.add ("103")
+        codeList.add ("104")
+        codeList.add ("105")
+
+        val filterList: ArrayList<FilterModel> = ArrayList()
+
         for (i in 0 until titles.size) {
             val filterModel = FilterModel(Categories)
             filterModel.setText(titles[i])
+            filterModel.setID(codeList[i])
             filterList.add(filterModel)
+
         }
 
         return filterList
     }
 
     fun getInterestsFilters(): ArrayList<FilterModel> {
-        val titles: ArrayList<String> = ArrayList()
         val filterList: ArrayList<FilterModel> = ArrayList()
+        val titles: ArrayList<String> = ArrayList()
+
 
         titles.add("زراعة")
         titles.add("علوم")
         titles.add("رياضة")
         titles.add("فنون")
 
-
+        val idList : ArrayList<String> = ArrayList()
+        idList.add ("201")
+        idList.add ("202")
+        idList.add ("203")
+        idList.add ("204")
+        idList.add ("205")
         for (i in 0 until titles.size)
         {
             val filterModel = FilterModel(Interests)
             filterModel.setText(titles[i])
+            filterModel.setID(idList[i])
             filterList.add(filterModel)
         }
 
@@ -172,20 +189,27 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
     }
 
     fun getCountriesFilters(): ArrayList<FilterModel> {
-        val titles: ArrayList<String> = ArrayList()
+
         val filterList: ArrayList<FilterModel> = ArrayList()
+        val titles: ArrayList<String> = ArrayList()
 
         titles.add("الاردن")
         titles.add("مصر")
         titles.add("السودان")
         titles.add("المغرب")
         titles.add("فلسطين")
-
+        val idList : ArrayList<String> = ArrayList()
+        idList.add ("301")
+        idList.add ("302")
+        idList.add ("303")
+        idList.add ("304")
+        idList.add ("305")
 
         for (i in 0 until titles.size)
         {
             val filterModel = FilterModel(Countries)
             filterModel.setText(titles[i])
+            filterModel.setID(idList[i])
             filterList.add(filterModel)
         }
 

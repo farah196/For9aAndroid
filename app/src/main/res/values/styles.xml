@@ -55,5 +55,11 @@
         <item name="android:layout_marginRight">30dp</item>
         <item name="android:fontFamily">sans-serif-thin</item>
     </style>
+    <style name="layoutDirection">
+        <item name="android:layoutDirection">ltr</item>
+    </style>
 
+    <style name="GravityLeft">
+        <item name="android:gravity">right</item>
+    </style>
 </resources>
