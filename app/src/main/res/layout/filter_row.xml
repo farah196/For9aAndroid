@@ -38,6 +38,7 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginLeft="15dp"
+                android:checked="@{viewRowFilter.checked}"
                 app:color_checked="@android:color/transparent"
                 app:color_tick="@color/colorPrimary"
                 app:color_unchecked_stroke="@color/colorAccent"

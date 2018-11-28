@@ -5,7 +5,7 @@ import java.io.Serializable
 import com.google.gson.annotations.SerializedName
 
 
-class IdTitleModel(id: Int, title: String,filterType: WizaredActivity.DataTypes) : Serializable,FilterModel("",false,"",filterType) {
+class IdTitleModel(id: Int, title: String) : Serializable {
     @SerializedName("id")
     private var id: Int = 0
     @SerializedName("title")

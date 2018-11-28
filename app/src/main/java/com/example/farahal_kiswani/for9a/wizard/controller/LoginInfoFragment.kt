@@ -45,7 +45,7 @@ class LoginInfoFragment : BaseWizaredFragment(),
         if (firstname.equals("") || lastname.equals("") || email.equals("") || password.equals("")) {
             Toast.makeText(this.context, "أكمل بياناتك", Toast.LENGTH_LONG).show()
         } else {
-            mCallback!!.onNext(info, WizaredActivity.DataTypes.UserLoginInfo)
+           mCallback.onNext(info, WizaredActivity.DataTypes.UserLoginInfo)
         }
     }
 

@@ -12,34 +12,35 @@
                 name="viewFilter"
                 type="com.example.farahal_kiswani.for9a.wizard.viewModel.FilterViewModel"/>
     </data>
-<RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
->
-
-    <android.support.v7.widget.RecyclerView
-            android:id="@+id/mRecyclerFilter"
+    <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:adapter="@{viewFilter.adapter}"
-            app:data="@{viewFilter.data}"
-            android:scrollbars="vertical" />
+            android:layout_height="match_parent"
+            android:background="@color/white"
+    >
 
-    <FrameLayout android:layout_width="match_parent"
-                 android:layout_height="70dp"
-                 android:layout_alignParentBottom="true"
-   >
-
-    <view android:layout_width="match_parent"
-          android:layout_height="70dp"
-    android:background="@color/colorAccent"
-    />
-        <Button android:layout_width="wrap_content"
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/mRecyclerFilter"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="@string/next"
-        />
-    </FrameLayout>
-</RelativeLayout>
+                app:adapter="@{viewFilter.adapter}"
+                app:data="@{viewFilter.data}"
+                android:scrollbars="vertical"/>
+
+        <FrameLayout android:layout_width="match_parent"
+                     android:layout_height="70dp"
+                     android:layout_alignParentBottom="true"
+        >
+
+            <view android:layout_width="match_parent"
+                  android:layout_height="70dp"
+                  android:background="@color/colorAccent"
+            />
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{viewFilter.saveData(v)}"
+                    android:layout_margin="10dp"
+                    android:text="@string/next"
+            />
+        </FrameLayout>
+    </RelativeLayout>
 </layout>

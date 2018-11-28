@@ -19,7 +19,6 @@ import com.example.farahal_kiswani.for9a.wizard.model.FilterModel
 import com.example.farahal_kiswani.for9a.wizard.model.UserModel
 import com.example.farahal_kiswani.for9a.wizard.util.BaseWizaredFragment
 import com.example.farahal_kiswani.for9a.wizard.util.CustomViewPager
-import com.example.farahal_kiswani.for9a.wizard.viewModel.FilterViewModel
 import com.example.farahal_kiswani.for9a.wizard.viewModel.WizaredViewModel
 
 import java.util.ArrayList
@@ -43,7 +42,7 @@ class WizaredActivity : AppCompatActivity(), WizaredPagerCallback {
     var mFragments = ArrayList<BaseWizaredFragment>()
     var currentFragmentPosition = 0
     var mAdapter: ViewPagerAdapter? = null
-val mFilterFragment:FilterFragment = FilterFragment()
+    val mFilterFragment:FilterFragment = FilterFragment()
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
@@ -77,13 +76,13 @@ val mFilterFragment:FilterFragment = FilterFragment()
         mFragment.setCallback(this)
         mFragments.add(mFragment)
 
+
+
         mFragment = FilterFragment()
         mFragment.setCallback(this)
-
-       mFragment.setType(Countries)
-
+        mFragment.setType(Countries)
         val mCountriesList:ArrayList<FilterModel> = getFilterItems(Countries)
-        (mFragment as FilterFragment).getData(mCountriesList)
+        (mFragment as FilterFragment).setData(mCountriesList)
         mFragments.add(mFragment)
 
 
@@ -91,10 +90,8 @@ val mFilterFragment:FilterFragment = FilterFragment()
         mFragment.setCallback(this)
         mFragment.setType(Interests)
         val mInterestList:ArrayList<FilterModel> = getFilterItems(Interests)
-        (mFragment as FilterFragment).getData(mInterestList)
+        (mFragment as FilterFragment).setData(mInterestList)
         mFragments.add(mFragment)
-
-
 
 
 
@@ -102,8 +99,10 @@ val mFilterFragment:FilterFragment = FilterFragment()
         mFragment.setCallback(this)
         mFragment.setType(Categories)
         val mCategoryList:ArrayList<FilterModel> = getFilterItems(Categories)
-        (mFragment as FilterFragment).getData(mCategoryList)
+        (mFragment as FilterFragment).setData(mCategoryList)
         mFragments.add(mFragment)
+
+
 
         mFragment = FinalFragment()
         mFragment.setCallback(this)
@@ -123,9 +122,17 @@ val mFilterFragment:FilterFragment = FilterFragment()
     }
 
     private fun getFilterItems(dataType: DataTypes): ArrayList<FilterModel> {
-     val   interestOb:FilterModel =FilterModel("تبادل ثقافي",true,"2",Interests)
-        val  countryOb:FilterModel =FilterModel("مصر",true,"2",Countries)
-        val   categoryOb:FilterModel =FilterModel("علوم",true,"2",Categories)
+
+        when(dataType){
+            Countries -> return getCountriesFilters()
+            Interests ->return interestList
+            Categories->return categoryList
+
+        }
+
+        val  interestOb:FilterModel =FilterModel(Interests)
+        val  countryOb:FilterModel =FilterModel(Countries)
+        val  categoryOb:FilterModel =FilterModel(Categories)
 
         val interestList: ArrayList<FilterModel> = ArrayList()
         interestList.add(interestOb)
@@ -139,12 +146,7 @@ val mFilterFragment:FilterFragment = FilterFragment()
         interestList.add(countryOb)
 
 
-        when(dataType){
-            Countries -> return countryList
-            Interests ->return interestList
-            Categories->return categoryList
 
-        }
         return categoryList
     }
 

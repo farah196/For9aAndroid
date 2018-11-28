@@ -6,15 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.RadioGroup
 import com.example.farahal_kiswani.for9a.R
 import com.example.farahal_kiswani.for9a.databinding.FilterRowBinding
 import com.example.farahal_kiswani.for9a.wizard.model.FilterModel
 import com.example.farahal_kiswani.for9a.wizard.viewModel.FilterItemViewModel
+import net.igenius.customcheckbox.CustomCheckBox
 
-class FilterRecyclerAdapter : RecyclerView.Adapter<FilterRecyclerAdapter.FilterViewHolder>() {
+class FilterRecyclerAdapter : RecyclerView.Adapter<FilterRecyclerAdapter.FilterViewHolder>(), View.OnClickListener {
 
-    private val data: MutableList<FilterModel>
 
+
+    public val data: MutableList<FilterModel>
+    lateinit var mCallback:View.OnClickListener
 
     init {
         this.data = ArrayList<FilterModel>()
@@ -25,12 +29,14 @@ class FilterRecyclerAdapter : RecyclerView.Adapter<FilterRecyclerAdapter.FilterV
         val itemView = LayoutInflater.from(parent.context).inflate(
             R.layout.filter_row,
             FrameLayout(parent.context), false
+
         )
         return FilterViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: FilterViewHolder, position: Int) {
         val dataModel = data[position]
+
         holder.setViewModel(FilterItemViewModel(dataModel))
     }
 
@@ -40,7 +46,7 @@ class FilterRecyclerAdapter : RecyclerView.Adapter<FilterRecyclerAdapter.FilterV
 
     override fun onViewAttachedToWindow(holder: FilterViewHolder) {
         super.onViewAttachedToWindow(holder)
-        holder.bind()
+        holder.bind(this)
     }
 
     override fun onViewDetachedFromWindow(holder: FilterViewHolder) {
@@ -57,16 +63,21 @@ class FilterRecyclerAdapter : RecyclerView.Adapter<FilterRecyclerAdapter.FilterV
         notifyDataSetChanged()
     }
 
+    override fun onClick(v: View?) {
+
+    }
+
+
+
+
     class FilterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var binding: FilterRowBinding? = null
 
-        init {
-            bind()
-        }
 
-        fun bind() {
+        fun bind(listener:View.OnClickListener) {
             if (binding == null) {
                 binding = DataBindingUtil.bind<FilterRowBinding>(itemView)
+                itemView.setOnClickListener(listener)
             }
         }
 
@@ -79,6 +90,7 @@ class FilterRecyclerAdapter : RecyclerView.Adapter<FilterRecyclerAdapter.FilterV
         fun setViewModel(viewModel: FilterItemViewModel) {
             if (binding != null) {
                 binding!!.viewRowFilter = viewModel
+
             }
         }
     }

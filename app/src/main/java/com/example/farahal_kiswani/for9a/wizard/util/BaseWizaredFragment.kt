@@ -6,14 +6,14 @@ import com.example.farahal_kiswani.for9a.wizard.interfaces.WizaredPagerCallback
 
 open class BaseWizaredFragment : Fragment() {
 
-    var mCallback: WizaredPagerCallback? = null
+    lateinit var mCallback: WizaredPagerCallback
     lateinit var fragmentType: WizaredActivity.DataTypes
 
     fun setCallback(mCallback: WizaredPagerCallback) {
         this.mCallback = mCallback
     }
 
-    fun setType(fragmentType: WizaredActivity.DataTypes){
+    fun setType(fragmentType: WizaredActivity.DataTypes) {
         this.fragmentType = fragmentType
     }
 
