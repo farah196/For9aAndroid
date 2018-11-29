@@ -2,7 +2,7 @@
     <string name="app_name">For9a</string>
     <string name="drawer_open">open</string>
     <string name="drawer_close">close</string>
-    <string name="select_gender_TextView">select gender</string>
+    <string name="select_gender_TextView">إختر الجنس </string>
     <string name="mBirthdayTextview">تاريخ الميلاد</string>
     <string name="mResidenceTextview">بلد الاقامة</string>
     <string name="mPhoneTextview">رقم التلفون</string>

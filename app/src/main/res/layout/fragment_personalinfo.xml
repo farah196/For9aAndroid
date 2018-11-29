@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -8,330 +9,208 @@
                 name="viewPersonalInfo"
                 type="com.example.farahal_kiswani.for9a.wizard.viewModel.PersonalInfoViewModel"/>
     </data>
-    <LinearLayout
-            android:layout_width="match_parent"
-            style="@style/layoutDirection"
-            android:layout_height="match_parent"
-            android:background="@color/gray_background"
-            android:gravity="center|top"
-            android:orientation="vertical"
-    >
 
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/userInfo"
-                android:textColor="@color/colorPrimary"
-                android:textSize="30dp"
-                android:textStyle="bold"/>
-
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="@drawable/border"
-                android:gravity="center">
-
-
-
-            <Spinner
-                    android:id="@+id/spinner_gender"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-           android:entries="@array/gender"/>
-        </LinearLayout>
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="@drawable/border"
-                android:gravity="center">
-
-            <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="#cfcfcf"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_place_white_18dp"/>
-
-
-            <EditText
-                    android:id="@+id/et_place"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:text="@={viewPersonalInfo.MResidence}"
-                    android:hint="@string/mResidenceTextview"
-                    android:inputType="text"
-                    android:padding="5dp"/>
-        </LinearLayout>
-
-
-
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="@drawable/border"
-                android:gravity="center">
-
-            <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="#cfcfcf"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_phone_android_white_18dp"></ImageView>
-
-
-            <EditText
-                    android:id="@+id/et_phone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:text="@={viewPersonalInfo.MPhone}"
-                    android:hint="@string/mPhoneTextview"
-                    android:inputType="text"
-                    android:padding="5dp"/>
-        </LinearLayout>
-
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="@drawable/border"
-                android:gravity="center">
-
-            <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="#cfcfcf"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_person_white_18dp"></ImageView>
-
-
-            <EditText
-                    android:id="@+id/et_Birthday"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:text="@={viewPersonalInfo.MBirthday}"
-                    android:hint="@string/mBirthdayTextview"
-                    android:inputType="text"
-                    android:padding="5dp"/>
-        </LinearLayout>
-
-
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="@drawable/border"
-                android:gravity="center">
-
-            <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="#cfcfcf"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_language_white_18dp"></ImageView>
-
-
-            <EditText
-                    android:id="@+id/et_educational_level"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:text="@={viewPersonalInfo.MEducationalLevel}"
-                    android:hint="@string/mEducationalLevelTextview"
-                    android:inputType="textEmailAddress"
-                    android:padding="5dp"/>
-        </LinearLayout>
-
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="@drawable/border"
-                android:gravity="center">
-
-            <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="#cfcfcf"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_language_white_18dp"></ImageView>
-
-
-            <EditText
-                    android:id="@+id/et_specialization"
-                    style="@style/GravityLeft"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:text="@={viewPersonalInfo.MSpecialization}"
-                    android:hint="@string/mSpecializationTextView"
-                    android:inputType="textPassword"
-                    android:padding="5dp"/>
-        </LinearLayout>
-<LinearLayout android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-android:orientation="horizontal">
-
-
-
-        <Button
-                android:id="@+id/button_previous"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:background="#727272"
-                android:text="@string/mPreviousButton"
-                android:onClick="@{(v)->viewPersonalInfo.back(v)}"
-                android:textColor="@android:color/white"/>
-    <Button
-            android:id="@+id/button_next"
+    <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:background="#727272"
-            android:text="@string/mNextButton"
-            android:onClick="@{(v)->viewPersonalInfo.onLoginButtonClicked(v)}"
-            android:textColor="@android:color/white"/>
-</LinearLayout>
-    </LinearLayout>
+            android:layout_alignParentTop="true"
+            android:fillViewport="true"
+            android:isScrollContainer="true">
+        <LinearLayout
+                android:layout_width="match_parent"
+                style="@style/layoutDirection"
+                android:layout_height="match_parent"
+                android:background="@color/gray_background"
+                android:gravity="center|top"
+                android:orientation="vertical"
+        >
 
-    <!--<RelativeLayout-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_width="match_parent">-->
-        <!--<ScrollView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:id="@+id/mScrollview"-->
-                <!--android:layout_marginBottom="50dp">-->
 
-            <!--<LinearLayout-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:orientation="vertical">-->
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/userInfo"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="30dp"
+                    android:textStyle="bold"/>
 
-                <!--<TextView android:layout_width="match_parent"-->
-                          <!--android:layout_height="wrap_content"-->
-                          <!--android:text="@string/select_gender_TextView"-->
-                          <!--android:layout_marginTop="10dp"-->
-                          <!--android:textSize="20sp"-->
-                <!--/>-->
-                <!--<android.support.v7.widget.AppCompatSpinner-->
-                        <!--android:id="@+id/gender"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:padding="12dp"-->
-                        <!--android:layout_margin="20dp"-->
-                        <!--android:entries="@array/gender"-->
-                <!--/>-->
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/border"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                <TextView android:layout_width="wrap_content"
+                          android:hint="@string/select_gender_TextView"
+                          android:textSize="18sp"
+                          android:layout_height="wrap_content"/>
 
-                <!--<android.support.design.widget.TextInputLayout-->
-                        <!--android:id="@+id/text_birthday_layout"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_margin="10dp"-->
+                <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/spinner_gender"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
 
-                <!--&gt;-->
+                        android:entries="@array/gender"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/border"
+                    android:gravity="center">
 
-                    <!--<EditText-->
-                            <!--android:id="@+id/mBirthday"-->
-                            <!--android:layout_width="match_parent"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:maxLength="10"-->
-                            <!--android:text="@={viewPersonalInfo.MBirthday}"-->
-                            <!--android:hint="@string/mBirthdayTextview"/>-->
+                <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="#cfcfcf"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_place_white_18dp"/>
 
-                <!--</android.support.design.widget.TextInputLayout>-->
-                <!--<android.support.design.widget.TextInputLayout-->
-                        <!--android:id="@+id/text_residence_layout"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_margin="10dp"-->
-                        <!--android:layout_height="wrap_content">-->
 
-                    <!--<EditText-->
-                            <!--android:id="@+id/mResidence"-->
-                            <!--android:layout_width="match_parent"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:maxLength="10"-->
-                            <!--android:text="@={viewPersonalInfo.MResidence}"-->
-                            <!--android:hint="@string/mResidenceTextview"/>-->
+                <EditText
+                        android:id="@+id/et_place"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:text="@={viewPersonalInfo.MResidence}"
+                        android:hint="@string/mResidenceTextview"
+                        android:inputType="text"
+                        android:padding="5dp"/>
+            </LinearLayout>
 
-                <!--</android.support.design.widget.TextInputLayout>-->
-                <!--<android.support.design.widget.TextInputLayout-->
-                        <!--android:id="@+id/text_phone_layout"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_margin="10dp"-->
-                        <!--android:layout_height="wrap_content">-->
 
-                    <!--<EditText-->
-                            <!--android:id="@+id/mPhone"-->
-                            <!--android:layout_width="match_parent"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:maxLength="10"-->
-                            <!--android:text="@={viewPersonalInfo.MPhone}"-->
-                            <!--android:hint="@string/mPhoneTextview"/>-->
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/border"
+                    android:gravity="center">
 
-                <!--</android.support.design.widget.TextInputLayout>-->
+                <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="#cfcfcf"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_phone_android_white_18dp"></ImageView>
 
-                <!--<android.support.design.widget.TextInputLayout-->
-                        <!--android:id="@+id/text_educationalLevel_layout"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_margin="10dp"-->
-                        <!--android:layout_height="wrap_content">-->
 
-                    <!--<EditText-->
-                            <!--android:id="@+id/mEducationalLevel"-->
-                            <!--android:layout_width="match_parent"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:maxLength="10"-->
-                            <!--android:text="@={viewPersonalInfo.MEducationalLevel}"-->
-                            <!--android:hint="@string/mEducationalLevelTextview"/>-->
+                <EditText
+                        android:id="@+id/et_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:text="@={viewPersonalInfo.MPhone}"
+                        android:hint="@string/mPhoneTextview"
+                        android:inputType="text"
+                        android:padding="5dp"/>
+            </LinearLayout>
 
-                <!--</android.support.design.widget.TextInputLayout>-->
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/border"
+                    android:gravity="center">
 
-                <!--<android.support.design.widget.TextInputLayout-->
-                        <!--android:id="@+id/text_specialization_layout"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_margin="10dp"-->
-                        <!--android:layout_height="wrap_content">-->
+                <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="#cfcfcf"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_person_white_18dp"></ImageView>
 
-                    <!--<EditText-->
-                            <!--android:id="@+id/mSpecialization"-->
-                            <!--android:layout_width="match_parent"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:maxLength="10"-->
-                            <!--android:text="@={viewPersonalInfo.MSpecialization}"-->
-                            <!--android:hint="@string/mSpecializationTextView"/>-->
 
-                <!--</android.support.design.widget.TextInputLayout>-->
-            <!--</LinearLayout>-->
-        <!--</ScrollView>-->
+                <EditText
+                        android:id="@+id/et_Birthday"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:text="@={viewPersonalInfo.MBirthday}"
+                        android:hint="@string/mBirthdayTextview"
+                        android:inputType="text"
+                        android:padding="5dp"/>
+            </LinearLayout>
 
-        <!--<Button-->
-                <!--android:id="@+id/mPreviousButton"-->
-                <!--android:layout_width="110dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:textColor="#000"-->
-                <!--android:layout_alignParentBottom="true"-->
-                <!--android:text="@string/mPreviousButton"-->
-                <!--android:onClick="@{(v)->viewPersonalInfo.back(v)}"-->
-                <!--style="@style/Widget.AppCompat.Button"/>-->
-        <!--<Button-->
-                <!--android:id="@+id/mNextButton"-->
-                <!--android:layout_width="110dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:textColor="#ffff"-->
-                <!--android:layout_centerInParent="true"-->
-                <!--android:layout_alignParentBottom="true"-->
-                <!--android:text="@string/mNextButton"-->
-                <!--android:onClick="@{(v)->viewPersonalInfo.onLoginButtonClicked(v)}"-->
-                <!--style="@style/Widget.AppCompat.Button.Colored"/>-->
 
-    <!--</RelativeLayout>-->
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/border"
+                    android:gravity="center">
+
+                <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="#cfcfcf"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_language_white_18dp"></ImageView>
+
+
+                <EditText
+                        android:id="@+id/et_educational_level"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:text="@={viewPersonalInfo.MEducationalLevel}"
+                        android:hint="@string/mEducationalLevelTextview"
+                        android:inputType="textEmailAddress"
+                        android:padding="5dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/border"
+                    android:gravity="center">
+
+                <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="#cfcfcf"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_language_white_18dp"></ImageView>
+
+
+                <EditText
+                        android:id="@+id/et_specialization"
+                        style="@style/GravityLeft"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:text="@={viewPersonalInfo.MSpecialization}"
+                        android:hint="@string/mSpecializationTextView"
+                        android:inputType="textPassword"
+                        android:padding="5dp"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:orientation="horizontal">
+
+
+                <Button
+                        android:id="@+id/button_previous"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:background="#727272"
+                        android:text="@string/mPreviousButton"
+                        android:onClick="@{(v)->viewPersonalInfo.back(v)}"
+                        android:textColor="@android:color/white"/>
+                <Button
+                        android:id="@+id/button_next"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:background="#727272"
+                        android:text="@string/mNextButton"
+                        android:onClick="@{(v)->viewPersonalInfo.onLoginButtonClicked(v)}"
+                        android:textColor="@android:color/white"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
 
 </layout>

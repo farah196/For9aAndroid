@@ -11,129 +11,142 @@
                 name="viewLoginInfo"
                 type="com.example.farahal_kiswani.for9a.wizard.viewModel.LoginInfoViewModel"/>
     </data>
-    <LinearLayout
-            android:layout_width="match_parent"
-            style="@style/layoutDirection"
-            android:layout_height="match_parent"
-            android:background="@color/gray_background"
-            android:gravity="center|top"
-            android:orientation="vertical"
-    >
 
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/newUser"
-                android:textColor="@color/colorPrimary"
-                android:textSize="30dp"
-                android:textStyle="bold"/>
-
-
+        <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:fillViewport="true"
+        android:isScrollContainer="true">
         <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="@drawable/border"
-                android:gravity="center">
+                style="@style/layoutDirection"
+                android:layout_height="match_parent"
+                android:background="@color/gray_background"
+                android:gravity="center|top"
+                android:orientation="vertical"
+        >
 
-            <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="#cfcfcf"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_person_white_18dp"/>
-
-
-            <EditText
-                    android:id="@+id/et_first_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:text="@={viewLoginInfo.firstname}"
-                    android:hint="@string/mFirstNameTextview"
-                    android:inputType="text"
-                    android:padding="5dp"/>
-        </LinearLayout>
-
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="@drawable/border"
-                android:gravity="center">
-
-            <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="#cfcfcf"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_person_white_18dp"></ImageView>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="vertical">
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/newUser"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_marginLeft="110dp"
+                        android:textSize="30dp"
+                        android:textStyle="bold"/>
 
 
-            <EditText
-                    android:id="@+id/et_last_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:text="@={viewLoginInfo.lastname}"
-                    android:hint="@string/mLastNameTextView"
-                    android:inputType="text"
-                    android:padding="5dp"/>
-        </LinearLayout>
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/border"
+                        android:gravity="center">
 
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="@drawable/border"
-                android:gravity="center">
-
-            <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="#cfcfcf"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_email_white_18dp"></ImageView>
+                    <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="#cfcfcf"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_person_white_18dp"/>
 
 
-            <EditText
-                    android:id="@+id/et_email_address"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:text="@={viewLoginInfo.email}"
-                    android:hint="@string/mEmailTextview"
-                    android:inputType="textEmailAddress"
-                    android:padding="5dp"/>
-        </LinearLayout>
+                    <EditText
+                            android:id="@+id/et_first_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:text="@={viewLoginInfo.firstname}"
+                            android:hint="@string/mFirstNameTextview"
+                            android:inputType="text"
+                            android:padding="5dp"/>
+                </LinearLayout>
 
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="@drawable/border"
-                android:gravity="center">
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/border"
+                        android:gravity="center">
 
-            <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="#cfcfcf"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_security_white_18dp"></ImageView>
+                    <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="#cfcfcf"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_person_white_18dp"></ImageView>
 
 
-            <EditText
-                    android:id="@+id/et_password"
-                    style="@style/GravityLeft"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:text="@={viewLoginInfo.password}"
-                    android:hint="@string/mPasswordTextView"
-                    android:inputType="textPassword"
-                    android:padding="5dp"/>
-        </LinearLayout>
+                    <EditText
+                            android:id="@+id/et_last_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:text="@={viewLoginInfo.lastname}"
+                            android:hint="@string/mLastNameTextView"
+                            android:inputType="text"
+                            android:padding="5dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/border"
+                        android:gravity="center">
+
+                    <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="#cfcfcf"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_email_white_18dp"></ImageView>
+
+
+                    <EditText
+                            android:id="@+id/et_email_address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:text="@={viewLoginInfo.email}"
+                            android:hint="@string/mEmailTextview"
+                            android:inputType="textEmailAddress"
+                            android:padding="5dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/border"
+                        android:gravity="center">
+
+                    <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="#cfcfcf"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_security_white_18dp"></ImageView>
+
+
+                    <EditText
+                            android:id="@+id/et_password"
+                            style="@style/GravityLeft"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:text="@={viewLoginInfo.password}"
+                            android:hint="@string/mPasswordTextView"
+                            android:inputType="textPassword"
+                            android:padding="5dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
 
 
         <Button
@@ -145,7 +158,8 @@
                 android:text="@string/mSignUp"
                 android:onClick="@{(v)->viewLoginInfo.login(v)}"
                 android:textColor="@android:color/white"/>
-    </LinearLayout>
 
+    </LinearLayout>
+        </ScrollView>
 
 </layout>

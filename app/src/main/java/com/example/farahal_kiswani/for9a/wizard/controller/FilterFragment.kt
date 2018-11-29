@@ -31,6 +31,7 @@ class FilterFragment : BaseWizaredFragment(), View.OnClickListener, FilterCallba
             R.layout.filter_fragment, container, false
         )
         filterViewModel = FilterViewModel(filterList, this)
+
         filterViewModel.mCallback = this
         setTitle()
         binding.mRecyclerFilter.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, true)

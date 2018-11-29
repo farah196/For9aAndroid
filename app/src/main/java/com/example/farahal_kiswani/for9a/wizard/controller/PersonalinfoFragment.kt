@@ -17,6 +17,7 @@ import com.example.farahal_kiswani.for9a.wizard.util.BaseWizaredFragment
 import com.example.farahal_kiswani.for9a.wizard.interfaces.WizaredPagerCallback
 import com.example.farahal_kiswani.for9a.wizard.model.UserModel
 import com.example.farahal_kiswani.for9a.wizard.viewModel.PersonalInfoViewModel
+import kotlinx.android.synthetic.main.fragment_personalinfo.*
 
 
 class PersonalinfoFragment : BaseWizaredFragment(), PersonalInfoFragmentCallback {
@@ -36,10 +37,8 @@ class PersonalinfoFragment : BaseWizaredFragment(), PersonalInfoFragmentCallback
     }
 
     override fun onBack() {
-        mCallback!!.onBack()
+        mCallback.onBack()
     }
-
-
 
 
     override fun onLoginClicked(
@@ -48,9 +47,7 @@ class PersonalinfoFragment : BaseWizaredFragment(), PersonalInfoFragmentCallback
         mPhone: String,
         mEducationalLevel: String,
         mSpecialization: String
-    )
-
-    {
+    ) {
         val info: UserModel.PersonalInfo = UserModel.PersonalInfo()
         info.mBirthday = mBirthday
         info.mResidence = mResidence
