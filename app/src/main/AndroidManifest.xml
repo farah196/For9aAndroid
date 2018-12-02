@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
           package="com.example.farahal_kiswani.for9a">
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
             android:name=".App"
             android:icon="@mipmap/ic_launcher"
