@@ -29,7 +29,7 @@
                     android:layout_alignParentRight="true"
                     app:color_checked="@android:color/transparent"
                     app:color_tick="@color/colorPrimary"
-                    app:color_unchecked_stroke="@color/colorAccent" />
+                    app:color_unchecked_stroke="@color/colorAccent"/>
 
             <TextView
                     android:id="@+id/mFilterSort"
@@ -37,7 +37,8 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:text="@{viewRowFilter.title}"
-
+                    android:layout_marginRight="40dp"
+                    android:layout_alignParentRight="true"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"/>
 
@@ -47,6 +48,6 @@
         <FrameLayout
                 android:id="@+id/clickableLayer"
                 android:layout_width="match_parent" android:layout_height="match_parent"
-        android:clickable="true"/>
+                android:clickable="true"/>
     </android.support.v7.widget.CardView>
 </layout>

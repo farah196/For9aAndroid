@@ -18,7 +18,21 @@ class PersonalInfoViewModel(val personalInfoCallback: PersonalInfoFragmentCallba
     val mPhone=ObservableField<String>("")
     val mEducationalLevel=ObservableField<String>("")
     val mSpecialization=ObservableField<String>("")
+    val mGenderList: ObservableArrayList<String> = ObservableArrayList()
 
+    //    var spinnerArrayAdapter: ArrayAdapter<GenderModel>? = null
+//
+//    fun setStates(list: List<GenderModel>) {
+//        val model: GenderModel = GenderModel()
+//        model.mMale = "ذكر"
+//        model.mFemale = "أنثى"
+//        this.mGenderList.add(model)
+//        spinnerArrayAdapter = ArrayAdapter<GenderModel>(
+//            personalInfoCallback.getContext(),
+//            R.layout.simple_spinner_dropdown_item,
+//            list
+//        )
+//
     fun onLoginButtonClicked(view:View){
         personalInfoCallback.onLoginClicked(mBirthday.get()!!,mResidence.get()!!,mPhone.get()!!,mEducationalLevel.get()!!,mSpecialization.get()!!)
     }
