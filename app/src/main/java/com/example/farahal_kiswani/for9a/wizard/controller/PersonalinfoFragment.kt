@@ -8,6 +8,8 @@ import android.support.v4.app.FragmentManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.example.farahal_kiswani.for9a.R
 
@@ -22,6 +24,8 @@ import kotlinx.android.synthetic.main.fragment_personalinfo.*
 
 class PersonalinfoFragment : BaseWizaredFragment(), PersonalInfoFragmentCallback {
 
+
+
     lateinit var personalInfoViewModel: PersonalInfoViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -30,8 +34,7 @@ class PersonalinfoFragment : BaseWizaredFragment(), PersonalInfoFragmentCallback
             DataBindingUtil.inflate(inflater, R.layout.fragment_personalinfo, container, false)
         personalInfoViewModel = PersonalInfoViewModel(this)
         binding.viewPersonalInfo = personalInfoViewModel
-
-
+        personalInfoViewModel.setSpinner(binding.spinnerGender)
         return binding.getRoot()
 
     }
@@ -42,6 +45,7 @@ class PersonalinfoFragment : BaseWizaredFragment(), PersonalInfoFragmentCallback
 
 
     override fun onLoginClicked(
+        mGender:String,
         mBirthday: String,
         mResidence: String,
         mPhone: String,
@@ -49,14 +53,21 @@ class PersonalinfoFragment : BaseWizaredFragment(), PersonalInfoFragmentCallback
         mSpecialization: String
     ) {
         val info: UserModel.PersonalInfo = UserModel.PersonalInfo()
+
         info.mBirthday = mBirthday
         info.mResidence = mResidence
         info.mPhone = mPhone
         info.mEducationalLevel = mEducationalLevel
         info.mSpecialization = mSpecialization
-        mCallback!!.onNext(info, WizaredActivity.DataTypes.UserPersonalInfo)
+        mCallback.onNext(info, WizaredActivity.DataTypes.UserPersonalInfo)
         personalInfoViewModel.hideSoftKeyboard(this.activity!!)
+        //  spinner_gender.selectedItem.toString()
     }
 
+
+
+    override fun getContext():Context {
+       return this.context
+    }
 }
 
